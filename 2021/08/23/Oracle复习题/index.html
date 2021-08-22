@@ -228,7 +228,7 @@
             <h1 style="display: none">Oracle复习题</h1>
             
             <div class="markdown-body">
-              <p>1、同义词是模式对象的一个别名，模式对象包括表、索引、视图等。</p>
+              <h2 id="Oracle复习题"><a href="#Oracle复习题" class="headerlink" title="Oracle复习题"></a>Oracle复习题</h2><p>1、同义词是模式对象的一个别名，模式对象包括表、索引、视图等。</p>
 <p>2、Oracle 11g的全局数据库名称由数据库名称和网域名称组成。</p>
 <p>3、Oracle 11g数据库服务器由Oracle数据库软件和Oracle实例组成。</p>
 <p>4、总体来说，数据库系统由数据库、硬件、软件和数据库管理员组成。</p>
@@ -264,7 +264,7 @@
 <p>34、根据异常产生的机理和原理，可将Oracle系统异常分为两大类：预定义异常和自定义异常。</p>
 <p>35、审计用来监视和记录所选用的数据活动。</p>
 <p>36、视图是一个虚拟表，它由存储的查询构成，可以将它的输出看作一个表。</p>
-<h2 id="名词解释（5个共15分）"><a href="#名词解释（5个共15分）" class="headerlink" title="名词解释（5个共15分）"></a>名词解释（5个共15分）</h2><p>1、非归档模式。</p>
+<h2 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h2><p>1、非归档模式。</p>
 <p>非归档模式就是指在系统运行期间，所产生的日志信息不断地记录到日志文件组中，当所有重做日志组被写满后，又重新从第一个日志组开始覆写。</p>
 <p>非归档模式的运行机制是：不备份，恢复能力有限。</p>
 <p><strong>特点是：</strong>缺点 占空间小 优点 恢复能力差。</p>
@@ -308,7 +308,7 @@
 <p>10、连接。</p>
 <p>连接（Join）是把两个表中的行按照给定的条件进行拼接而形成新表。</p>
 <p>多个数据表，每个表的信息不是独立存在，而是存在一定关系，当用户查询某个表的信息时，很可能需要查询关联数据表的信息，这就是多表关联查询。</p>
-<h2 id="简答题（3个，共15分）"><a href="#简答题（3个，共15分）" class="headerlink" title="简答题（3个，共15分）"></a>简答题（3个，共15分）</h2><p>1、在Oracle 11g系统中，约束的类型包括哪几种？</p>
+<h2 id="简答题"><a href="#简答题" class="headerlink" title="简答题"></a>简答题</h2><p>1、在Oracle 11g系统中，约束的类型包括哪几种？</p>
 <p>约束分为5种： 非空（NOT NULL）约束、 唯一性（UNIQUE）约束、主键（PRIMARY KEY）约束、外键（FOREIGN KEY）约束、检查（CHECK）约束。</p>
 <blockquote>
 <p>　　非空（NOT NULL）约束：顾名思义，所约束的列不能为NULL值。否则就会报错<br>　　唯一（UNIQUE）约束：在表中每一行中所定义的这列或这些列的值都不能相同。必须保证唯一性。否则就会违法约束条件。<br>　　主键（PRIMARY KEY）约束：唯一的标识表中的每一行，不能重复，不能为空。 创建主键或唯一约束后，ORACLE会自动创建一个与约束同名的索引（UNIQUENES为UNIQUE唯一索引）。需要注意的是：每个表只能有且有一个主键约束。<br>　　外键（FOREIGN KEY）约束：用来维护从表（Child Table）和主表（Parent Table）之间的引用完整性. 外键约束是个有争议性的约束，它一方面能够维护数据库的数据一致性，数据的完整性。防止错误的垃圾数据入库； 另外一方面它会增加表插入、更新等SQL性能的额外开销，不少系统里面通过业务逻辑控制来取消外键约束。例如在数据仓库中，就推荐禁用外键约束。<br>　　检查（CHECK）约束：表中每行都要满足该约束条件。条件约束既可以在表一级定义也可以在列一级定义。在一列上可以定义任意多个条件约束。<br>　　REF约束的定义：REF column by definition references an object in another object type or in a relational table. A REF constraint lets you further describe the relationship between the REF column and the object it references.</p>
@@ -344,7 +344,7 @@
 <li>对象类型的方法</li>
 <li>数据库触发器</li>
 </ul>
-<h2 id="编程题（4个，共30分）"><a href="#编程题（4个，共30分）" class="headerlink" title="编程题（4个，共30分）"></a>编程题（4个，共30分）</h2><p>1、在scott模式下，创建学生表（XSB），其表结构如下：</p>
+<h2 id="编程题"><a href="#编程题" class="headerlink" title="编程题"></a>编程题</h2><p>1、在scott模式下，创建学生表（XSB），其表结构如下：</p>
 <table>
 <thead>
 <tr>
@@ -482,7 +482,7 @@
 <p>8、在Scott模式下，把emp表中销售员（即SALESMAN）的工资上调20%，然后使用隐式游标sql的%rowcount属性输出上调工资的员工数量。</p>
 <figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">set</span> serveroutput <span class="hljs-keyword">on</span><span class="hljs-comment">/**/</span><br><span class="hljs-keyword">begin</span> <br><span class="hljs-keyword">update</span> emp <span class="hljs-keyword">set</span> sal=sal*(<span class="hljs-number">1</span>+<span class="hljs-number">0.2</span>) <span class="hljs-keyword">where</span> job=<span class="hljs-string">&#x27;SALESMAN&#x27;</span>;<br><span class="hljs-keyword">if</span> <span class="hljs-keyword">sql</span>%notfound <span class="hljs-keyword">then</span>  <span class="hljs-comment">/*若update语句没有影响到任何一行数据*/</span><br>dbms_output.put_line(<span class="hljs-string">&#x27;无员工上调工资&#x27;</span>);<br><span class="hljs-keyword">else</span>                  <span class="hljs-comment">/*若update语句至少影响到一行数据*/</span><br>dbms_output.put_line(<span class="hljs-string">&#x27;有&#x27;</span>||<span class="hljs-keyword">sql</span>%rowcount||<span class="hljs-string">&#x27;个雇员工资上调20%&#x27;</span>);<br><span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>;<br><span class="hljs-keyword">end</span>;<br>/<br></code></pre></td></tr></table></figure>
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">String Str=<span class="hljs-string">&quot;str&quot;</span>;<br></code></pre></td></tr></table></figure>
+
 
 
             </div>
