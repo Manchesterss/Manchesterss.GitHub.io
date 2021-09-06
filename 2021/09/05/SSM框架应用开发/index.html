@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      514 字
+      513 字
     </span>
   
 
@@ -243,7 +243,8 @@
 <ol>
 <li>获取文档的<strong>根节点</strong><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//读取后的第二步，就是得到 Root节点。一切XML分析都是从Root元素开始的</span><br>Element rootElm = document.getRootElement();<br></code></pre></td></tr></table></figure></li>
 <li>获取某节点的<strong>单个子节点</strong><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">Element elm=rootElm.element(<span class="hljs-string">&quot;student&quot;</span>);<br></code></pre></td></tr></table></figure></li>
-<li>获取某节点的<strong>所有子节点元素</strong><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java">List&lt;Element&gt; elms=rootElm.elements(<span class="hljs-string">&quot;student&quot;</span>);<br>```   <br><span class="hljs-number">4.</span> 获取某节点的**内容**<br>```java<br><span class="hljs-comment">//获取节点内容有两种方式：</span><br><span class="hljs-comment">//通过元素获取</span><br>String text=document.getRootElement().element(<span class="hljs-string">&quot;student&quot;</span>).getText();<br><span class="hljs-comment">//通过根节点直接获取元素内容</span><br>String elementText=document.getRootElement().elementText(<span class="hljs-string">&quot;student&quot;</span>);<br></code></pre></td></tr></table></figure>
+<li>获取某节点的<strong>所有子节点元素</strong><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">List&lt;Element&gt; elms=rootElm.elements(<span class="hljs-string">&quot;student&quot;</span>);<br></code></pre></td></tr></table></figure></li>
+<li>获取某节点的<strong>内容</strong><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//获取节点内容有两种方式：</span><br><span class="hljs-comment">//通过元素获取</span><br>String text=document.getRootElement().element(<span class="hljs-string">&quot;student&quot;</span>).getText();<br><span class="hljs-comment">//通过根节点直接获取元素内容</span><br>String elementText=document.getRootElement().elementText(<span class="hljs-string">&quot;student&quot;</span>);<br></code></pre></td></tr></table></figure>
 以上两种方式输出结果均为：<code>大家好,我是Mary</code></li>
 </ol>
 <p><strong>节点对象的属性方法操作</strong></p>
@@ -296,6 +297,32 @@
               
             </div>
 
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@waline/client@0.16.2/dist/Waline.min.js', function() {
+        var options = Object.assign(
+          {"serverURL":"https://blog-api-nu.vercel.app/","placeholder":"说点什么","path":"window.location.pathname","avatar":"retro","meta":["nick","mail","link"],"pageSize":10,"lang":"zh-CN","highlight":true,"avatarCDN":"","avatarForce":false,"requiredFields":[],"emojiCDN":null,"emojiMaps":null,"anonymous":null},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        new Waline(options);
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
             
           </article>
         </div>
