@@ -311,7 +311,10 @@
 <h2 id="简答题"><a href="#简答题" class="headerlink" title="简答题"></a>简答题</h2><p>1、在Oracle 11g系统中，约束的类型包括哪几种？</p>
 <p>约束分为5种： 非空（NOT NULL）约束、 唯一性（UNIQUE）约束、主键（PRIMARY KEY）约束、外键（FOREIGN KEY）约束、检查（CHECK）约束。</p>
 <blockquote>
-<p>　　非空（NOT NULL）约束：顾名思义，所约束的列不能为NULL值。否则就会报错<br>　　唯一（UNIQUE）约束：在表中每一行中所定义的这列或这些列的值都不能相同。必须保证唯一性。否则就会违法约束条件。<br>　　主键（PRIMARY KEY）约束：唯一的标识表中的每一行，不能重复，不能为空。 创建主键或唯一约束后，ORACLE会自动创建一个与约束同名的索引（UNIQUENES为UNIQUE唯一索引）。需要注意的是：每个表只能有且有一个主键约束。<br>　　外键（FOREIGN KEY）约束：用来维护从表（Child Table）和主表（Parent Table）之间的引用完整性. 外键约束是个有争议性的约束，它一方面能够维护数据库的数据一致性，数据的完整性。防止错误的垃圾数据入库； 另外一方面它会增加表插入、更新等SQL性能的额外开销，不少系统里面通过业务逻辑控制来取消外键约束。例如在数据仓库中，就推荐禁用外键约束。<br>　　检查（CHECK）约束：表中每行都要满足该约束条件。条件约束既可以在表一级定义也可以在列一级定义。在一列上可以定义任意多个条件约束。<br>　　REF约束的定义：REF column by definition references an object in another object type or in a relational table. A REF constraint lets you further describe the relationship between the REF column and the object it references.</p>
+<p>　　非空（NOT NULL）约束：顾名思义，所约束的列不能为NULL值。否则就会报错<br>　　唯一（UNIQUE）约束：在表中每一行中所定义的这列或这些列的值都不能相同。必须保证唯一性。否则就会违法约束条件。</p>
+<p>　　主键（PRIMARY KEY）约束：唯一的标识表中的每一行，不能重复，不能为空。 创建主键或唯一约束后，ORACLE会自动创建一个与约束同名的索引（UNIQUENES为UNIQUE唯一索引）。需要注意的是：每个表只能有且有一个主键约束。</p>
+<p>　　外键（FOREIGN KEY）约束：用来维护从表（Child Table）和主表（Parent Table）之间的引用完整性. 外键约束是个有争议性的约束，它一方面能够维护数据库的数据一致性，数据的完整性。防止错误的垃圾数据入库； 另外一方面它会增加表插入、更新等SQL性能的额外开销，不少系统里面通过业务逻辑控制来取消外键约束。例如在数据仓库中，就推荐禁用外键约束。</p>
+<p>　　检查（CHECK）约束：表中每行都要满足该约束条件。条件约束既可以在表一级定义也可以在列一级定义。在一列上可以定义任意多个条件约束。<br>　　REF约束的定义：REF column by definition references an object in another object type or in a relational table. A REF constraint lets you further describe the relationship between the REF column and the object it references.</p>
 </blockquote>
 <p>2、Oracle 11g默认创建的主要表空间有哪些？</p>
 <p>SYSTEM、USERS、TEMP、SYSAUX、UNDOTBS1、EXAMPLE</p>
@@ -327,10 +330,15 @@
 <p>3、Oracle的系统全局（SGA）的主要部件有哪些？</p>
 <p>SGA是所有用户进程共享的一块内存区域，主要部件有高速数据缓冲区、共享池、重做日志缓冲区、Java池和大型池。</p>
 <blockquote>
-<p>（1）<strong>数据高速缓冲区</strong>：存放着Oracle系统最近使用过的数据库数据块。<br>（2）<strong>共享池</strong>：相当于程序高速缓冲区，所有的用户程序都存放在共享SQL池中。<br>（3）<strong>重做日志缓冲区</strong>：用于缓冲区在对数据进行修改的操作过程中生成的重做记录.<br>（4）<strong>大型池</strong>：在SGA区中不是必需的内存结构，只在某些特殊情况下，实例需要使用大型池来减轻共享池的访问压力，常用情况有：备份和恢复、执行具有大量排序操作的SQL语句、使用并行查询时。</p>
+<p>（1）<strong>数据高速缓冲区</strong>：存放着Oracle系统最近使用过的数据库数据块。</p>
+<p>（2）<strong>共享池</strong>：相当于程序高速缓冲区，所有的用户程序都存放在共享SQL池中。</p>
+<p>（3）<strong>重做日志缓冲区</strong>：用于缓冲区在对数据进行修改的操作过程中生成的重做记录.<br>（4）<strong>大型池</strong>：在SGA区中不是必需的内存结构，只在某些特殊情况下，实例需要使用大型池来减轻共享池的访问压力，常用情况有：备份和恢复、执行具有大量排序操作的SQL语句、使用并行查询时。</p>
 </blockquote>
 <p>4、在哪些情况下，实例需要使用大型池来减轻共享池的访问压力？</p>
-<p>(1)使用恢复管理器进行备份和恢复操作时，大型池将作为I/O缓冲区使用。 　　　　<br>(2)使用I/O Slave仿真异步I/O功能时，大型池将被作为I/O缓冲区使用。 　　　　<br>(3)执行具有大量排序操作的SQL语句。 　　　　<br>(4)当使用并行查询时，大型池作为并行查询进程彼此交换信息的地方。 </p>
+<p>(1)使用恢复管理器进行备份和恢复操作时，大型池将作为I/O缓冲区使用。</p>
+<p>(2)使用I/O Slave仿真异步I/O功能时，大型池将被作为I/O缓冲区使用。</p>
+<p>(3)执行具有大量排序操作的SQL语句。 　　　　</p>
+<p>(4)当使用并行查询时，大型池作为并行查询进程彼此交换信息的地方。 </p>
 <p>5、回滚到指定保存点时，将完成哪些主要的工作？</p>
 <ol>
 <li>回滚保存点之后的部分事务。</li>
@@ -467,7 +475,9 @@
 <td>学分</td>
 </tr>
 </tbody></table>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> KCB(<br> KCH <span class="hljs-type">char</span>(<span class="hljs-number">3</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> <span class="hljs-keyword">PRIMARY</span> KEY,<br> KCM <span class="hljs-type">char</span>(<span class="hljs-number">16</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,<br> KKXQ number(<span class="hljs-number">1</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-string">&#x27;1&#x27;</span>,<br> XS number(<span class="hljs-number">2</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-string">&#x27;0&#x27;</span>,<br> XF number(<span class="hljs-number">1</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-string">&#x27;0&#x27;</span><br> );<br><br><span class="hljs-number">3</span>、假设有一个与jobs表结构一样的表jobs_temp，然后将jobs表中最高工资额（max_salary）大于<span class="hljs-number">10000</span>的记录插入到新表jobs_temp中。<br><br>​```<span class="hljs-keyword">sql</span><br><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> jobs_temp <span class="hljs-keyword">select</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">from</span> jobs <span class="hljs-keyword">where</span> jobs.max_salary<span class="hljs-operator">&gt;</span><span class="hljs-number">10000</span>;<br></code></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> KCB(<br> KCH <span class="hljs-type">char</span>(<span class="hljs-number">3</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> <span class="hljs-keyword">PRIMARY</span> KEY,<br> KCM <span class="hljs-type">char</span>(<span class="hljs-number">16</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,<br> KKXQ number(<span class="hljs-number">1</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-string">&#x27;1&#x27;</span>,<br> XS number(<span class="hljs-number">2</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-string">&#x27;0&#x27;</span>,<br> XF number(<span class="hljs-number">1</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-string">&#x27;0&#x27;</span><br> );<br></code></pre></td></tr></table></figure>
+<p>3、假设有一个与jobs表结构一样的表jobs_temp，然后将jobs表中最高工资额（max_salary）大于10000的记录插入到新表jobs_temp中。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> jobs_temp <span class="hljs-keyword">select</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">from</span> jobs <span class="hljs-keyword">where</span> jobs.max_salary<span class="hljs-operator">&gt;</span><span class="hljs-number">10000</span>;<br></code></pre></td></tr></table></figure>
 
 <p>4、在scott模式下，把emp表中职务为销售员（SALESMAN）的工资上调20%。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">update emp <span class="hljs-keyword">set</span> sal<span class="hljs-operator">=</span>sal<span class="hljs-operator">*</span>(<span class="hljs-number">1</span><span class="hljs-operator">+</span><span class="hljs-number">0.2</span>) <span class="hljs-keyword">where</span> job<span class="hljs-operator">=</span><span class="hljs-string">&#x27;SALESMAN&#x27;</span>;<br></code></pre></td></tr></table></figure>

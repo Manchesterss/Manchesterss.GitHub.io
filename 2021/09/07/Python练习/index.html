@@ -173,7 +173,7 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-09-07 18:00" pubdate>
+      <time datetime="2021-09-07 19:33" pubdate>
         September 7, 2021 pm
       </time>
     </span>
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      434 字
+      436 字
     </span>
   
 
@@ -228,11 +228,11 @@
             <h1 style="display: none">Python练习笔记</h1>
             
             <div class="markdown-body">
-              <h1 id="Python练习笔记"><a href="#Python练习笔记" class="headerlink" title="Python练习笔记"></a>Python练习笔记</h1><p>最近在学习Python，所幸将练习记录一下:)</p>
+              <h1 id="Python练习笔记"><a href="#Python练习笔记" class="headerlink" title="Python练习笔记"></a>Python练习笔记</h1><p>最近在学习==Python==，所幸将练习记录一下:)</p>
 <h2 id="1-完美数"><a href="#1-完美数" class="headerlink" title="1.完美数"></a>1.完美数</h2><p>对于一个 正整数，如果它和除了它自身以外的所有 正因子 之和相等，我们称它为 「完美数」。</p>
 <p>给定一个 整数 <code>n</code>， 如果是完美数，返回 <code>true</code>，否则返回 <code>false</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>(<span class="hljs-params"><span class="hljs-built_in">object</span></span>):</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">checkPerfectNumber</span>(<span class="hljs-params">self, num</span>):</span><br>        <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">        :type num: int </span><br><span class="hljs-string">        :rtype: bool</span><br><span class="hljs-string">        &quot;&quot;&quot;</span><br>        s=<span class="hljs-number">0</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,num/<span class="hljs-number">2</span>+<span class="hljs-number">1</span>):<br>            <span class="hljs-keyword">if</span> num%i==<span class="hljs-number">0</span>:<br>                s+=i;<br>        <span class="hljs-keyword">if</span> s==num <span class="hljs-keyword">and</span> s!=<span class="hljs-number">1</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>        <span class="hljs-keyword">else</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br></code></pre></td></tr></table></figure>
-<p>这是我的答案，但是并没有通过，超出时间限制了。。。<br><img src="https://cdn.jsdelivr.net/gh/Manchesterss/picx-image@main/2020/%E5%B9%BB%E6%83%B3%E9%80%8D%E9%81%A5%E4%BE%A0_20210907_191550.7eshnl3j6gc0.gif" srcset="/img/loading.gif" lazyload alt="幻想逍遥侠_20210907_191550"></p>
+<p>这是我的答案，但是并没有通过，超出时间限制了。。。<br><img src="https://cdn.jsdelivr.net/gh/Manchesterss/picx-image@main/2020/%E5%B9%BB%E6%83%B3%E9%80%8D%E9%81%A5%E4%BE%A0_20210907_191550.7eshnl3j6gc0.gif" srcset="/img/loading.gif" lazyload></p>
 <p>看了题解发现问题出现在</p>
 <ol>
 <li>如果<code>num</code> 过大的话，每次从1开始循环，等待时间太久</li>
@@ -241,7 +241,7 @@
 <p>以<code>36</code> 为例，它的非自身外正因子有1、2、3、4、6、9、12、18，其中 1 和 6 单独计算，[2, 18]、[3, 12]、[4, 9]都是对应关系、<br>所以只需要遍历到 36 的平方根 6 就可以获取全部正因子,1单独计算的原因是要排除自身,6单独计算的原因是 6 * 6 = 36，两个值相同，故而只能计算一遍.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/perfect-number/solution/hua-jie-suan-fa-507-wan-mei-shu-by-guanpengchn/">题解</a></p>
 <p><strong>新的答案！</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-keyword">import</span> math<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>(<span class="hljs-params"><span class="hljs-built_in">object</span></span>):</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">checkPerfectNumber</span>(<span class="hljs-params">self, num</span>):</span><br>        <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">        :type num: int </span><br><span class="hljs-string">        :rtype: bool</span><br><span class="hljs-string">        &quot;&quot;&quot;</span><br>        s=<span class="hljs-number">1</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>,<span class="hljs-built_in">int</span>(math.sqrt(num))+<span class="hljs-number">1</span>):<br>            <span class="hljs-keyword">if</span> num%i==<span class="hljs-number">0</span>:<br>                s+=i<br>                s+=num/i<br>            <span class="hljs-keyword">if</span> i*i==num:<br>                s-=i     <br>        <span class="hljs-keyword">if</span> s==num <span class="hljs-keyword">and</span> s!=<span class="hljs-number">1</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br></code></pre></td></tr></table></figure>
-<p>时间复杂度<br>$$ O(\sqrt{n})$$<br>n 为 num 的大小<br><img src="https://cdn.jsdelivr.net/gh/Manchesterss/picx-image@main/2020/%E5%B9%BB%E6%83%B3%E9%80%8D%E9%81%A5%E4%BE%A0_20210907_192000.5m9iztax4b40.gif" srcset="/img/loading.gif" lazyload alt="幻想逍遥侠_20210907_192000"></p>
+<p>时间复杂度 O(n**0.5),n 为 num 的大小<br><img src="https://cdn.jsdelivr.net/gh/Manchesterss/picx-image@main/2020/%E5%B9%BB%E6%83%B3%E9%80%8D%E9%81%A5%E4%BE%A0_20210907_192000.5m9iztax4b40.gif" srcset="/img/loading.gif" lazyload></p>
 <h2 id="未完待续…"><a href="#未完待续…" class="headerlink" title="未完待续…"></a>未完待续…</h2><blockquote>
 <p>题目<code>1</code>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/perfect-number">https://leetcode-cn.com/problems/perfect-number</a></p>
 </blockquote>
@@ -255,7 +255,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Python%EF%BC%8C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Python，学习笔记</a>
+                      <a class="hover-with-bg" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Python/">Python</a>
                     
                   </div>
                 
