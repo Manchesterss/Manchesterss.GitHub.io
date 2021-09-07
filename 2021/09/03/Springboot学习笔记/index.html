@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      6.4k 字
+      6.7k 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      89
+      92
        分钟
     </span>
   
@@ -309,16 +309,13 @@ TestDao[接口]--&gt;TestDaoImpl[接口的实现类]--&gt;applicationContext[配
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Component</span> 该注解是一个泛化的概念，仅仅表示一个组件对象（Bean），可以作用在任何层次上<br><span class="hljs-meta">@Repository</span> 数据访问层(DAO) <span class="hljs-meta">@Service</span> 业务逻辑层 (Service) <span class="hljs-meta">@Controller</span> 控制器层<br><span class="hljs-meta">@ComponentScan</span>:扫描含有<span class="hljs-meta">@Component</span>，<span class="hljs-meta">@Controller</span>，<span class="hljs-meta">@Service</span>和<span class="hljs-meta">@Repository</span>的类，并将其注入到spring容器中<br></code></pre></td></tr></table></figure>
 
 <p>2.注入<strong>Bean</strong>的注解</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Autowired</span>:类成员变量、方法及构造方法进行标注，完成自动装配的工作,消除setter和getter方法，默认按照Bean类型进行装配<br><span class="hljs-meta">@Resource</span>：功能和<span class="hljs-meta">@Autowired</span>一样，默认按照名称来装配注入,只有当找不到与名称匹配的Bean才会按照类型来装配注入,<span class="hljs-meta">@Resource</span>注解有两个属性：name和type。<br><span class="hljs-meta">@Qualifier</span>:当<span class="hljs-meta">@Autowired</span>需要按照名称来装配注入时，需要结合该注解一起<br><br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Autowired</span>:类成员变量、方法及构造方法进行标注，完成自动装配的工作,消除setter和getter方法，默认按照Bean类型进行装配<br><span class="hljs-meta">@Resource</span>：功能和<span class="hljs-meta">@Autowired</span>一样，默认按照名称来装配注入,只有当找不到与名称匹配的Bean才会按照类型来装配注入,<span class="hljs-meta">@Resource</span>注解有两个属性：name和type。<br><span class="hljs-meta">@Qualifier</span>:当<span class="hljs-meta">@Autowired</span>需要按照名称来装配注入时，需要结合该注解一起<br></code></pre></td></tr></table></figure>
 
 <p>3.基于注解的依赖注入</p>
 <ol>
-<li><p>省略set方法</p>
-</li>
-<li><p>省略XML文件中的<bean></p>
-</li>
-<li><p>基于java配置的</p>
-</li>
+<li>省略set方法</li>
+<li>省略XML文件中的<bean></li>
+<li>基于java配置的</li>
 </ol>
 <h3 id="Spring-AOP和instrumentation"><a href="#Spring-AOP和instrumentation" class="headerlink" title="Spring AOP和instrumentation"></a>Spring AOP和instrumentation</h3><ul>
 <li><strong>Spring-aop</strong>模块：提供了一个符合AOP要求的面向切面的编程实现，允许定义方法拦截器和切入点，将代码按照功能进行分离，以便干净地解耦。</li>
@@ -349,8 +346,8 @@ BeanClass--id&#x3D;constructorInstance--&gt;applocatationContext.xml--&gt;测试
 
 <p><strong>3.实例工厂实例化</strong></p>
 <p>要求开发者在工厂类中创建一个实例方法来创建Bean的实例。配置Bean时，需要使用<code>factory-bean</code>属性指定配置的实例工厂，同时还需要<code>factory-method</code>属性指定实例工厂中的实例方法。</p>
-<pre><code><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BeanInstanceFactory</span> </span>&#123;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> BeanClass <span class="hljs-title">createBeanClassInstance</span><span class="hljs-params">()</span> </span>&#123;<br>	    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> BeanClass(<span class="hljs-string">&quot;调用实例工厂方法实例化Bean&quot;</span>);<br>    &#125;&#125;<br></code></pre></td></tr></table></figure>
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BeanInstanceFactory</span> </span>&#123;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> BeanClass <span class="hljs-title">createBeanClassInstance</span><span class="hljs-params">()</span> </span>&#123;<br>	    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> BeanClass(<span class="hljs-string">&quot;调用实例工厂方法实例化Bean&quot;</span>);<br>    &#125;&#125;<br></code></pre></td></tr></table></figure>
+
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--applicationContext.xml--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;myFactory&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;instance.BeanInstanceFactory&quot;</span>/&gt;</span><br><span class="hljs-comment">&lt;!-- 使用factory-bean属性指定配置工厂 ，</span><br><span class="hljs-comment">使用factory-method属性指定使用工厂中哪个方法实例化Bean--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;instanceFactoryInstance&quot;</span> <span class="hljs-attr">factory-bean</span>=<span class="hljs-string">&quot;myFactory&quot;</span> <span class="hljs-attr">factory-method</span>=<span class="hljs-string">&quot;createBeanClassInstance&quot;</span>/&gt;</span><br></code></pre></td></tr></table></figure>
 
 <p> Bean的作用域</p>
@@ -404,7 +401,6 @@ BeanClass--id&#x3D;constructorInstance--&gt;applocatationContext.xml--&gt;测试
 <h2 id="Spring-MVC"><a href="#Spring-MVC" class="headerlink" title="Spring MVC"></a>Spring MVC</h2><h3 id="1-基于注解的控制器"><a href="#1-基于注解的控制器" class="headerlink" title="1.基于注解的控制器"></a>1.基于注解的控制器</h3><h3 id="2-MVC"><a href="#2-MVC" class="headerlink" title="2.MVC"></a>2.MVC</h3><h4 id="视图解析器"><a href="#视图解析器" class="headerlink" title="视图解析器"></a>视图解析器</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 配置视图解析器</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@return</span></span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Bean</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> InternalResourceViewResolver <span class="hljs-title">getViewResolver</span><span class="hljs-params">()</span></span>&#123;<br>	InternalResourceViewResolver viewResolver = <span class="hljs-keyword">new</span> InternalResourceViewResolver();<br>	viewResolver.setPrefix(<span class="hljs-string">&quot;/WEB-INF/jsp/&quot;</span>);<br>	viewResolver.setPrefix(<span class="hljs-string">&quot;.jsp&quot;</span>);<br>	<span class="hljs-keyword">return</span> viewResolver;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h4 id="静态资源"><a href="#静态资源" class="headerlink" title="静态资源"></a>静态资源</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 配置静态资源</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Override</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addResourceHandlers</span><span class="hljs-params">(ResourceHandlerRegistry registry)</span> </span>&#123;<br>	registry.addResourceHandler(<span class="hljs-string">&quot;/html/**&quot;</span>).addResourceLocations(<span class="hljs-string">&quot;/html/&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
-
 <h4 id="拦截器"><a href="#拦截器" class="headerlink" title="拦截器"></a>拦截器</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 配置拦截器Bean</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Bean</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> MyInteceptor <span class="hljs-title">myInteceptor</span><span class="hljs-params">()</span></span>&#123;<br>	<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> MyInteceptor();<br>&#125;<br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 重写addInterceptors方法注册拦截器</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Override</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addInterceptors</span><span class="hljs-params">(InterceptorRegistry registry)</span></span>&#123;<br>	registry.addInterceptor(myInteceptor());<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h4 id="MultipartResolver配置"><a href="#MultipartResolver配置" class="headerlink" title="MultipartResolver配置"></a>MultipartResolver配置</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * MultipartResolver配置</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@return</span></span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Bean</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> MultipartResolver <span class="hljs-title">multipartResolver</span><span class="hljs-params">()</span></span>&#123;<br>	CommonsMultipartResolver multipartResolver = <span class="hljs-keyword">new</span> CommonsMultipartResolver();<br>	<span class="hljs-comment">//设置上传文件的最大值，单位为字节</span><br>	multipartResolver.setMaxUploadSize(<span class="hljs-number">5400000</span>);<br>	<span class="hljs-comment">//设置请求的编码格式，默认为iso-8859-1</span><br>	multipartResolver.setDefaultEncoding(<span class="hljs-string">&quot;UTF-8&quot;</span>);<br>	<span class="hljs-keyword">return</span> multipartResolver();<br>&#125;	<br></code></pre></td></tr></table></figure>
@@ -420,25 +416,25 @@ u2--&gt;test
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//转发：地址无变化，一个请求，同一服务器</span><br><span class="hljs-meta">@RequestMapping(&quot;/forward&quot;)</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">tiaozhuan</span><span class="hljs-params">()</span></span>&#123;<br>     <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;forward:/index/redirect&quot;</span><br>&#125;<br><span class="hljs-comment">//重定向：地址变化，不同服务器</span><br><span class="hljs-meta">@RequestMapping(&quot;/redirect&quot;)</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">red</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;redirect:/index/redirect&quot;</span><br>&#125;<br></code></pre></td></tr></table></figure>
 <h3 id="6-文件上传"><a href="#6-文件上传" class="headerlink" title="6.文件上传"></a>6.文件上传</h3><pre><code class=" mermaid">graph LR
 jsp--&gt;MultiFileDomain--&gt;MultiFileConcroller
-
 </code></pre>
-
-
-
 <ol>
-<li><p>实体类</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs jsp">&lt;form action enctype=<span class="hljs-string">&quot;multipart/form-data&quot;</span> method=<span class="hljs-string">&quot;post&quot;</span>&gt;<br>    <br>&lt;/form&gt;<br></code></pre></td></tr></table></figure></li>
-<li><p>边界类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//MultifileDomain</span><br></code></pre></td></tr></table></figure></li>
-<li><p>控制类</p>
-</li>
+<li>实体类</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs jsp">&lt;form action enctype=<span class="hljs-string">&quot;multipart/form-data&quot;</span> method=<span class="hljs-string">&quot;post&quot;</span>&gt;<br>&lt;/form&gt;<br></code></pre></td></tr></table></figure>
+<ol start="2">
+<li>边界类</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//MultifileDomain</span><br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>控制类</li>
 </ol>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//MultifileController</span><br><span class="hljs-meta">@Controller</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MultiFileController</span></span>&#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Logger<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">multFileUpload</span><span class="hljs-params">()</span></span>&#123;<br>        String realPath;<br>        File targerDir=<span class="hljs-keyword">new</span> File(realPath);<br>        <span class="hljs-comment">//判断保存的文件夹是否存在</span><br>        <span class="hljs-keyword">if</span>(!targerDir.exists())&#123;<br>            targerDir.mkdir();<span class="hljs-comment">//创建文件夹</span><br>        &#125;<br>        <span class="hljs-comment">//MultipartFile自动匹配页面的file对象</span><br>        List&lt;MultipartFile&gt; files=multiFileDomain.getMyfile();<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;files.size();i++)&#123;<br>            MultipartFile file=files.get(i);<span class="hljs-comment">//取索引赋值给 MultipartFile</span><br>            String filename=file.getOriginalFilename();<br>            File targetFile=<span class="hljs-keyword">new</span> File(realpath,filename);<br>            <span class="hljs-keyword">try</span>&#123;<br>                file.tarnsferTo(targetFile);<br>            &#125;<span class="hljs-keyword">catch</span> (Exception e)&#123;<br>                e.printStackTrace();<br>            &#125;<br>        &#125;<br>        Logger.info(<span class="hljs-string">&quot;上传成功&quot;</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;showMulti&quot;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//SpringMVCConfig</span><br>MultipatrResolver <br>MultipentFile<br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">	 * MultipartResolver配置</span><br><span class="hljs-comment">	 */</span><br>	<span class="hljs-meta">@Bean</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> MultipartResolver <span class="hljs-title">multipartResolver</span><span class="hljs-params">()</span> </span>&#123;<br>		CommonsMultipartResolver multipartResolver = <span class="hljs-keyword">new</span> CommonsMultipartResolver();<br>		<span class="hljs-comment">//设置上传文件的最大值，单位为字节,5400000=5.4M</span><br>		multipartResolver.setMaxUploadSize(<span class="hljs-number">5400000</span>);<br>		<span class="hljs-comment">//设置请求的编码格式，默认为iso-8859-1</span><br>		multipartResolver.setDefaultEncoding(<span class="hljs-string">&quot;UTF-8&quot;</span>);<br>		<span class="hljs-keyword">return</span> multipartResolver;<br>	&#125;<br></code></pre></td></tr></table></figure>
 
 <p>jsp–div–&gt;file[input type=’file’ name=’myfile’]–&gt;MultipentFile<br>jsp–&gt;text[description]–&gt;description</p>
-<h2 id="Spring-AOP"><a href="#Spring-AOP" class="headerlink" title="Spring AOP"></a>Spring AOP</h2><h3 id="Spring-AOP的基本概念"><a href="#Spring-AOP的基本概念" class="headerlink" title="Spring AOP的基本概念"></a>Spring AOP的基本概念</h3><p>AOP采取横向抽取机制，即将分散在各个方法中的重复代码提取出来，然后在程序编译或运行阶段，再将这些抽取出来的代码应用到需要执行的地方。OOP实现的是父子关系的纵向重用。但是AOP不是OOP的替代品，而是OOP的补充，它们相辅相成。</p>
+<h2 id="Spring-AOP"><a href="#Spring-AOP" class="headerlink" title="Spring AOP"></a>Spring AOP</h2><h3 id="Spring-AOP的基本概念"><a href="#Spring-AOP的基本概念" class="headerlink" title="Spring AOP的基本概念"></a>Spring AOP的基本概念</h3><p>AOP采取横向抽取机制，即将分散在各个方法中的重复代码提取出来，然后在程序编译或运行阶段，再将这些抽取出来的代码应用到需要执行的地方。降低模块之间的耦合度，OOP实现的是父子关系的纵向重用。但是AOP不是OOP的替代品，而是OOP的补充，它们相辅相成。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Manchesterss/picx-image@main/2020/image-20210516180453543.3v9pd5gsb4q0.png" srcset="/img/loading.gif" lazyload alt="image-20210516180453543"></p>
 <p>横向抽取机制</p>
 <pre><code class=" mermaid">graph LR
@@ -448,24 +444,47 @@ c[关注点]--抽象--&gt;d[切面]
 </code></pre>
 
 <p><img src="https://cdn.jsdelivr.net/gh/Manchesterss/picx-image@main/2020/image-20210516181041922.kub7xhn17a8.png" srcset="/img/loading.gif" lazyload alt="image-20210516181041922"></p>
-<p>1．<strong>切面</strong><br>切面（Aspect）是指封装横切到系统功能（如事务处理）的类。<br>2．<strong>连接点</strong><br>连接点（Joinpoint）是指程序运行中的一些时间点，如方法的调用或异常的抛出。</p>
-<p>3．<strong>切入点</strong><br>切入点（Pointcut）是指那些需要处理的连接点。在Spring AOP 中，所有的方法执行都是连接点，而切入点是一个描述信息，它修饰的是连接点，通过切入点确定哪些连接点需要被处理。4．<strong>通知（增强处理）</strong><br>由切面添加到特定的连接点（满足切入点规则）的一段代码，即在定义好的切入点处所要执行的程序代码。可以将其理解为切面开启后，切面的方法。因此，通知是切面的具体实现。</p>
+<p>1．<strong>切面</strong><br>切面（Aspect）是指封装横切到系统功能（如事务处理）的类。</p>
+<p>2．<strong>连接点</strong><br>一连接点（Joinpoint）是指程序运行中的一些时间点，如方法的调用或异常的抛出。</p>
+<p>3．<strong>切入点</strong><br>切入点（Pointcut）是指那些需要处理的连接点。一个匹配连接点的正则表达式。在Spring AOP 中，所有的方法执行都是连接点，而切入点是一个描述信息，它修饰的是连接点，通过切入点确定哪些连接点需要被处理。</p>
+<p>4．<strong>通知（增强处理）</strong><br>由切面添加到特定的连接点（满足切入点规则）的一段代码，即在定义好的切入点处所要执行的程序代码。可以将其理解为切面开启后，切面的方法。因此，通知是切面的具体实现。</p>
 <p>5．<strong>引入</strong><br>引入（Introduction）允许在现有的实现类中添加自定义的方法和属性。</p>
 <p>6．<strong>目标对象</strong><br>目标对象（Target Object）是指所有被通知的对象。如果AOP 框架使用运行时代理的方式（动态的AOP）来实现切面，那么通知对象总是一个代理对象。</p>
 <p>7．<strong>代理</strong><br>代理（Proxy）是通知应用到目标对象之后，被动态创建的对象。</p>
-<p>8．<strong>组入</strong><br>组入（Weaving）是将切面代码插入到目标对象上，从而生成代理对象的过程。根据不同的实现技术，AOP织入有三种方式：编译器织入，需要有特殊的Java编译器；类装载期织入，需要有特殊的类装载器；动态代理织入，在运行期为目标类添加通知生成子类的方式。Spring AOP框架默认采用动态代理织入，而AspectJ（基于Java语言的AOP框架）采用编译器织入和类装载期织入。</p>
-<h3 id="动态代理"><a href="#动态代理" class="headerlink" title="动态代理"></a>动态代理</h3><ul>
-<li><strong>JDK动态代理</strong>：JDK动态代理是<code>java.lang.reflect.*</code>包提供的方式，它必须借助一个接口才能产生代理对象。因此，对于使用业务接口的类，Spring默认使用JDK动态代理实现AOP。</li>
-<li><strong>CGLIB动态代理</strong>：一个高性能开源的代码生成包，采用非常底层的字节码技术，对指定的目标类生成一个子类，并对子类进行增强。在Spring Core包中已经集成了CGLIB所需要的JAR包，不需要另外导入JAR包。</li>
+<p>8．<strong>组入(织入)</strong><br>组入（Weaving）是将切面代码插入到目标对象上，从而生成代理对象的过程。根据不同的实现技术，AOP织入有三种方式：</p>
+<ul>
+<li>编译器织入，需要有特殊的Java编译器；-</li>
+<li>类装载期织入，需要有特殊的类装载器；</li>
+<li>动态代理织入，在运行期为目标类添加通知生成子类的方式。</li>
 </ul>
+<p>Spring AOP框架默认采用动态代理织入，而AspectJ（基于Java语言的AOP框架）采用编译器织入和类装载期织入。</p>
+<h3 id="动态代理"><a href="#动态代理" class="headerlink" title="动态代理"></a>动态代理</h3><p> <strong>JDK动态代理</strong>：JDK动态代理是<code>java.lang.reflect.*</code>包提供的方式，它必须借助一个接口才能产生代理对象。因此，对于使用业务接口的类，Spring默认使用JDK动态代理实现AOP。</p>
+<p> <strong>CGLIB动态代理</strong>：一个高性能开源的代码生成包，采用非常底层的字节码技术，对指定的目标类生成一个子类，并对子类进行增强。在Spring Core包中已经集成了<code>CGLIB</code>所需要的JAR包，不需要另外导入JAR包。</p>
 <h3 id="基于代理类的AOP实现"><a href="#基于代理类的AOP实现" class="headerlink" title="基于代理类的AOP实现"></a>基于代理类的AOP实现</h3><p>Spring中默认使用JDK动态代理实现AOP编程。使用<code>org.springframework.aop.framework.ProxyFactoryBean</code>创建代理是Spring AOP实现的最基本方式。</p>
 <blockquote>
 <p>AOP的术语</p>
+<p>AOP实战-AspectJ</p>
 <p>AOP(Aspect-Oriented Programming, ==面向切面编程==): 是一种新的方法论, 是对传统 OOP(Object-Oriented Programming, 面向对象编程) 的补充。</p>
 <p>AOP 的主要编程对象是切面(aspect), 而切面是把横切关注点==模块化==!</p>
 <p>在应用 AOP 编程时, 需要定义公共功能, 但可以明确的定义这个功能在哪里应用, 并且不必修改需要使用公共功能的类。 这样以来横切关注点就被模块化到特殊的对象(切面)里.</p>
+<p>面向AOP编程程序员参与的3个部分：</p>
+<ul>
+<li>定义普通业务组件</li>
+<li>定义切入点</li>
+<li>定义通知，也叫增强处理</li>
+</ul>
 </blockquote>
-<h2 id="Spring-Boot入门​和​核心"><a href="#Spring-Boot入门​和​核心" class="headerlink" title="Spring Boot入门​和​核心"></a>Spring Boot入门​和​核心</h2><p>​    ==SpringBoot的基本配置、自动配置原理、条件注解==</p>
+<p>Spring通知的类型，前置通知，正常返回通知取决于在连接点执行前后时间，此为还有异常返回通知，连接点执行完成后执行最终通知。环绕通知，围绕在连接点前后，如一个方法调用的前后<br>切入点的定义</p>
+<p>Spring Aop中切入点表达式大量使用execution表达式:<br>modifiers-pattern指定方法的修饰符(可省略)<br>ret-type-pattern<br>declaring-type-pattern</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//任意公共方法的执行</span><br>execution(<span class="hljs-keyword">public</span> * *(..))<br><span class="hljs-comment">//任何一个以‘set’开始的方法的执行</span><br>execution(*set*(..))<br><span class="hljs-comment">//AccountService接口的任意方法的执行</span><br>execution(*com.xyz.service.AccountService)<br><span class="hljs-comment">//定义在service包里的任意方法的执行</span><br>execution(*com.xyz.servuce.*.*(..))<br><span class="hljs-comment">//定义在service包或者子包里的任意方法的执行</span><br>execution(*com.xyz.servuce..*.*(..))<br></code></pre></td></tr></table></figure>
+<h3 id="基于XML配置的AOP编程"><a href="#基于XML配置的AOP编程" class="headerlink" title="基于XML配置的AOP编程"></a>基于XML配置的AOP编程</h3><ol>
+<li><p>添加支持AOP编程的JAR包</p>
+</li>
+<li><p>配置切面</p>
+</li>
+<li><h2 id="Spring-Boot入门​和​核心"><a href="#Spring-Boot入门​和​核心" class="headerlink" title="Spring Boot入门​和​核心"></a>Spring Boot入门​和​核心</h2></li>
+</ol>
+<p>​    ==SpringBoot的基本配置、自动配置原理、条件注解==</p>
 <h3 id="MAVEN配置"><a href="#MAVEN配置" class="headerlink" title="MAVEN配置"></a>MAVEN配置</h3><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">MAVEN_HOME</span>-&gt;目录<br><span class="hljs-attribute">path</span>=%MAVEN_HOME%\bin<br><span class="hljs-attribute">cmd</span>-&gt;mvn -v<br><span class="hljs-attribute">maven</span>.rar-&gt;D:<br><span class="hljs-attribute">apache</span>-maven-<span class="hljs-number">3</span>.<span class="hljs-number">6</span>.<span class="hljs-number">3</span>&gt;conf&gt;settings&gt;&lt;localRepository&gt;d:\maven&lt;/localRepository&gt;<br><span class="hljs-attribute">Maven4MyEclipse</span>&gt;User Settings&gt;apache-maven-<span class="hljs-number">3</span>.<span class="hljs-number">6</span>.<span class="hljs-number">3</span>&gt;conf&gt;settings.xml<br></code></pre></td></tr></table></figure>
 
 <p><strong>优点</strong></p>
