@@ -285,28 +285,28 @@
 <thead>
 <tr>
 <th align="center">名称</th>
-<th align="center">说明</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody><tr>
 <td align="center">byName</td>
-<td align="center">根据 Property 的 name 自动装配，如果一个 Bean 的 name 和另一个 Bean 中的 Property 的 name 相同，则自动装配这个 Bean 到 Property 中。当一个 Bean 节点带有 autowire 的属性时，将查找其类中所有的 set 方法名，获得将 set 去掉并且首字母小写的字符串，然后去 spring 容器中寻找是否有此字符串名称 id 的对象。如果有，就取出注入；如果没有，就报空指针异常。</td>
+<td>根据 Property 的 name 自动装配，如果一个 Bean 的 name 和另一个 Bean 中的 Property 的 name 相同，则自动装配这个 Bean 到 Property 中。当一个 Bean 节点带有 autowire 的属性时，将查找其类中所有的 set 方法名，获得将 set 去掉并且首字母小写的字符串，然后去 spring 容器中寻找是否有此字符串名称 id 的对象。如果有，就取出注入；如果没有，就报空指针异常。</td>
 </tr>
 <tr>
 <td align="center">byType</td>
-<td align="center">根据 Property 的数据类型（Type）自动装配，如果一个 Bean 的数据类型兼容另一个 Bean 中 Property 的数据类型，则自动装配。</td>
+<td>根据 Property 的数据类型（Type）自动装配，如果一个 Bean 的数据类型兼容另一个 Bean 中 Property 的数据类型，则自动装配。</td>
 </tr>
 <tr>
 <td align="center">constructor</td>
-<td align="center">根据构造方法的参数的数据类型，进行 byType 模式的自动装配。</td>
+<td>根据构造方法的参数的数据类型，进行 byType 模式的自动装配。</td>
 </tr>
 <tr>
 <td align="center">autodetect</td>
-<td align="center">如果发现默认的构造方法，则用 constructor 模式，否则用 byType 模式。</td>
+<td>如果发现默认的构造方法，则用 constructor 模式，否则用 byType 模式。</td>
 </tr>
 <tr>
 <td align="center">no</td>
-<td align="center">默认情况下，不使用自动装配，Bean 依赖必须通过 ref 元素定义。</td>
+<td>默认情况下，不使用自动装配，Bean 依赖必须通过 ref 元素定义。</td>
 </tr>
 </tbody></table>
 <h3 id="任务代码-2"><a href="#任务代码-2" class="headerlink" title="任务代码"></a>任务代码</h3><p>先把在第2关<code>StudentDaoImpl.java</code>、<code>StudentServiceImpl.java</code>、<code>StudentAction.java</code>中的添加的注解去掉或者注释。</p>
