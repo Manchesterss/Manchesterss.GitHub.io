@@ -1,0 +1,982 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-ZN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/logo.png">
+  <link rel="icon" href="/img/logo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="lzdong">
+  <meta name="keywords" content="后端开发/游戏制作人/恐怖片爱好者">
+  
+    <meta name="description" content="Oracle复习题1、同义词是模式对象的一个别名，模式对象包括表、索引、视图等。 2、Oracle 11g的全局数据库名称由数据库名称和网域名称组成。 3、Oracle 11g数据库服务器由Oracle数据库软件和Oracle实例组成。 4、总体来说，数据库系统由数据库、硬件、软件和数据库管理员组成。 5、表空间有三种类型：永久性、临时性和还原性。 6、状态选项用于设置表空间状态，状态有读写、只读">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Oracle复习题">
+<meta property="og:url" content="http://example.com/2021/08/23/Oracle%E5%A4%8D%E4%B9%A0%E9%A2%98/index.html">
+<meta property="og:site_name" content="lzdong&#39;s space">
+<meta property="og:description" content="Oracle复习题1、同义词是模式对象的一个别名，模式对象包括表、索引、视图等。 2、Oracle 11g的全局数据库名称由数据库名称和网域名称组成。 3、Oracle 11g数据库服务器由Oracle数据库软件和Oracle实例组成。 4、总体来说，数据库系统由数据库、硬件、软件和数据库管理员组成。 5、表空间有三种类型：永久性、临时性和还原性。 6、状态选项用于设置表空间状态，状态有读写、只读">
+<meta property="og:locale" content="zh_ZN">
+<meta property="og:image" content="https://ewr1.vultrobjects.com/imgspice/000/000/619/956_43e_8ee.jpg">
+<meta property="article:published_time" content="2021-08-22T17:45:32.029Z">
+<meta property="article:modified_time" content="2021-09-10T14:50:15.675Z">
+<meta property="article:author" content="lzdong">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="Oarcle">
+<meta property="article:tag" content="数据库">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ewr1.vultrobjects.com/imgspice/000/000/619/956_43e_8ee.jpg">
+  
+  
+  
+  <title>Oracle复习题 - lzdong&#39;s space</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>lzdong&#39;s space</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>主页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-playstation-fill"></i>
+                <span>更多</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid">
+                    
+                    <span>Fluid</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">
+                    
+                    <span>Hexo</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://cdn.jsdelivr.net/gh/Manchesterss/picx-image@main/2020/backgroundPng.8kb1ok12nkg.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Oracle复习题"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-08-23 01:45" pubdate>
+          August 23, 2021 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          6.8k wörter
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          57 minuten
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Oracle复习题</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="Oracle复习题"><a href="#Oracle复习题" class="headerlink" title="Oracle复习题"></a>Oracle复习题</h2><p>1、同义词是模式对象的一个别名，模式对象包括表、索引、视图等。</p>
+<p>2、Oracle 11g的全局数据库名称由数据库名称和网域名称组成。</p>
+<p>3、Oracle 11g数据库服务器由Oracle数据库软件和Oracle实例组成。</p>
+<p>4、总体来说，数据库系统由数据库、硬件、软件和数据库管理员组成。</p>
+<p>5、表空间有三种类型：永久性、临时性和还原性。</p>
+<p>6、状态选项用于设置表空间状态，状态有读写、只读和脱机三种。</p>
+<p>7、在Order By子句中，用于升序排列的关键字是ASC。</p>
+<p>8、用户账号拥有的对象集称为用户的方案。</p>
+<p>9、用于指出一个字符串是否与指定的字符串相匹配的谓词是Like。</p>
+<p>10、禁用约束所使用的关键字是Disable。</p>
+<p>11、段空间管理又分为手工段和自动段两种空间管理方式。</p>
+<p>12、在Oracle系统中，为列指定别名既可以使用AS关键字，也可以不使用任何关键字而直接指定。</p>
+<p>13、在Order By子句中，用于降序排列的关键字是DESC。</p>
+<p>14、如果要在Oracle中另外创建索引，一般有两种方法：使用SQL Developer和PL&#x2F;SQL命令。</p>
+<p>15、激活约束所使用的关键字是Enable。</p>
+<p>16、Oracle提供了3类运算符：算数运算符、关系运算符和逻辑运算符。</p>
+<p>17、整个PL&#x2F;SQL块分3部分：声明部分、执行部分和异常处理部分。</p>
+<p>18、表空间有三种类型：永久性、临时性和还原性。</p>
+<p>19、Oracle的自定义异常可以分为错误编号异常和业务逻辑异常两种。</p>
+<p>20、能够引起触发器运行的操作就被称为触发事件。</p>
+<p>21、一般情况下，Oracle的锁可以分为：DML锁、DDL锁和内部锁。</p>
+<p>22、数据字典是Oracle存放数据库内部信息的地方，用来描述数据库内部的运行和管理情况。</p>
+<p>23、用于消除结果集中的重复行的关键字是DISTINCT。</p>
+<p>24、在Oracle中，通过游标操作数据主要使用显示游标和隐式游标。</p>
+<p>25、事务的提交方式包括：显式提交、自动提交和隐式提交。</p>
+<p>26、DDL锁有独占DDL锁、共享DDL锁和可破的分析DDL锁。</p>
+<p>27、根据系统管理方式的不同，在Oracle数据库中将权限分为两大类：系统权限和对象权限。</p>
+<p>28、角色是一个独立的数据库实体，它包括一组权限。</p>
+<p>29、数据字典是Oracle存放数据库内部信息的地方，用来描述数据库内部的运行和管理情况。</p>
+<p>30、按照索引列的个数又可以将索引分为单列索引和复合索引。</p>
+<p>31、事务的状态分为：活动状态、部分提交状态、失败状态、提交状态和中止状态。</p>
+<p>32、在建立数据库之前，必须指定数据库实例的系统表示符，此系统标识符就是SID。</p>
+<p>33、PL&#x2F;SQL中的循环语句主要包括：Loop语句、While语句和for语句3种。</p>
+<p>34、根据异常产生的机理和原理，可将Oracle系统异常分为两大类：预定义异常和自定义异常。</p>
+<p>35、审计用来监视和记录所选用的数据活动。</p>
+<p>36、视图是一个虚拟表，它由存储的查询构成，可以将它的输出看作一个表。</p>
+<h2 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h2><p>1、非归档模式。</p>
+<p>非归档模式就是指在系统运行期间，所产生的日志信息不断地记录到日志文件组中，当所有重做日志组被写满后，又重新从第一个日志组开始覆写。</p>
+<p>非归档模式的运行机制是：不备份，恢复能力有限。</p>
+<p><strong>特点是：</strong>缺点 占空间小 优点 恢复能力差。</p>
+<p>2、归档模式。</p>
+<p>归档模式就是指各个日志文件都被写满并即将被覆盖之前，先由递归进程将即将被覆盖的日志文件中的日志信息读出，并将“读出的日志信息”写入归档日志文件中，这个过程又被称为归档操作。</p>
+<p>归档模式运行机制是：重复写数据，当文件写满重新备份再写、恢复强、占空间。</p>
+<p><strong>特点是：</strong>缺点 占地方 优点 恢复能力强。</p>
+<p>3、B树索引。</p>
+<p>Oracle的标准索引结构是是一个典型的B树结构，其包含的组件主要是:</p>
+<ol>
+<li><p>叶子结点：包含条目直接指向表里的数据行</p>
+</li>
+<li><p>分支结点：包含的条目指向索引里其他的分支节点或者叶子节点</p>
+</li>
+<li><p>根节点：一个B树索引只有一个根节点，它实际就是位于树的最顶端的分支节点</p>
+<p><img src="https://ewr1.vultrobjects.com/imgspice/000/000/619/956_43e_8ee.jpg" srcset="/img/loading.gif" lazyload alt="B树索引"></p>
+</li>
+</ol>
+<p>4、外键。</p>
+<p>外键（foreign key）是指“当前表”引用“另外一个表”的某个列或某几个列，而“另外一个表”中被引用的列必须具有主键约束或者唯一性约束。</p>
+<p>5、回退事务。</p>
+<p>回退事务（rollback语句）是指撤销对数据库进行的全部操作，Oracle利用回退段来存储修改前的数据，通过重做日志来记录对数据所做的修改。</p>
+<p>回退点又称为保存点,指在含有较多SQL语句的事务中间设定的回滚标记，其作用类似于调试程序的中断点。利用保存点可以将事务划分为若干部分,可以回滚到指定的保存点，保存点记录的是当前数据库的状态</p>
+<blockquote>
+<p>在事务commit提交前,可以使用rollback 到指定的保存点,来回退到指定的保存点</p>
+<p>在事务commit提交后,保存点会被删除,这个时候,就无法进行回退了</p>
+<p>这里在使用保存点之前,强调一点,任何commit操作,也就是事务提交操作,都会导致savepoint的被删除!!!</p>
+</blockquote>
+<p>6、提交事务</p>
+<p>当执行使用commit语句可以提交事务.当执行了commit语句后,会确认事务的变化、结束事务、删除保存点、释放锁。在此之前,与当前事务相关的数据都会被加锁,直到当前事务进行了commit操作,如果在这个过程中有其他回话试图操作相关数据,(这些数据已经被当前事务加锁),那么其他回话会进行等待,或者直接返回错误。</p>
+<p>注意:只有在提交事务之后也就是进行commit操作之后,数据才会真正的发生改变,在commit提交之前操作,全部被记录入Oracle日志系统</p>
+<p>7、视图。</p>
+<p>视图是一个虚拟表，它由存储的查询构成，可以将它的输出看作一个表。视图同真的表一样，也可以包含一系列带有名称的列和行数据，但是视图并不在数据库中存储数据值，其数据值来自定义视图的查询语句所引用的表，数据库只在数据字典中存储视图的定义信息。</p>
+<p>视图是一个逻辑表，是查看表的一种方式。视图是对根据预定义的选择标准、由一个或者多个行的集合建立起来的动态表的静态定义。</p>
+<p>8、变量。</p>
+<p>变量是指其值在程序运行过程中可以改变的数据存储结构，定义变量必需的元素就是变量名和数据类型.另外还有可选择的初始值，其标准语法格式如下:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">&lt;变量名&gt; &lt;数据类型&gt; [(长度):=&lt;初始值&gt;];<br></code></pre></td></tr></table></figure>
+<p>9、常量。</p>
+<p>常量是指其值在程序运行过程中不可改变的数据存储结构，定义常量必需的元素包括常量名、数据类型、常量值和constant关键字，例如一年四个季度，9月有30天，圆周率等，其标准语法格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">&lt;常量名&gt; constant &lt;数据类型&gt;:=&lt;常量值&gt;;<br></code></pre></td></tr></table></figure>
+<p>10、连接。</p>
+<p>连接（Join）是把两个表中的行按照给定的条件进行拼接而形成新表。</p>
+<p>多个数据表，每个表的信息不是独立存在，而是存在一定关系，当用户查询某个表的信息时，很可能需要查询关联数据表的信息，这就是多表关联查询。</p>
+<h2 id="简答题"><a href="#简答题" class="headerlink" title="简答题"></a>简答题</h2><p>1、在Oracle 11g系统中，约束的类型包括哪几种？</p>
+<p>约束分为5种： 非空（NOT NULL）约束、 唯一性（UNIQUE）约束、主键（PRIMARY KEY）约束、外键（FOREIGN KEY）约束、检查（CHECK）约束。</p>
+<blockquote>
+<p>　　非空（NOT NULL）约束：顾名思义，所约束的列不能为NULL值。否则就会报错<br>　　唯一（UNIQUE）约束：在表中每一行中所定义的这列或这些列的值都不能相同。必须保证唯一性。否则就会违法约束条件。</p>
+<p>　　主键（PRIMARY KEY）约束：唯一的标识表中的每一行，不能重复，不能为空。 创建主键或唯一约束后，ORACLE会自动创建一个与约束同名的索引（UNIQUENES为UNIQUE唯一索引）。需要注意的是：每个表只能有且有一个主键约束。</p>
+<p>　　外键（FOREIGN KEY）约束：用来维护从表（Child Table）和主表（Parent Table）之间的引用完整性. 外键约束是个有争议性的约束，它一方面能够维护数据库的数据一致性，数据的完整性。防止错误的垃圾数据入库； 另外一方面它会增加表插入、更新等SQL性能的额外开销，不少系统里面通过业务逻辑控制来取消外键约束。例如在数据仓库中，就推荐禁用外键约束。</p>
+<p>　　检查（CHECK）约束：表中每行都要满足该约束条件。条件约束既可以在表一级定义也可以在列一级定义。在一列上可以定义任意多个条件约束。<br>　　REF约束的定义：REF column by definition references an object in another object type or in a relational table. A REF constraint lets you further describe the relationship between the REF column and the object it references.</p>
+</blockquote>
+<p>2、Oracle 11g默认创建的主要表空间有哪些？</p>
+<p>SYSTEM、USERS、TEMP、SYSAUX、UNDOTBS1、EXAMPLE</p>
+<blockquote>
+<p>SYSTEM：system表空间是永久表空间，用于存储SYS用户的表、视图、存储过程对象。</p>
+<p>每个ORACLE数据库至少有一个SYSTEM表空间,这是数据库创建时自动创建的。</p>
+<p>USERS：users表空间是永久表空间，存储数据库用户创建的数据库对象</p>
+<p>TEMP：temp表空间是临时表空间，用户存储SQL语句处理的表示索引信息。</p>
+<p>SYSAUX：作为SYSTEM的辅助表空间。</p>
+<p>UNDOTBS1：Undotbs1表空间是存储撤销信息的undo表空间。</p>
+<p>EXAMPLE：安装Oracle数据库示例的表空间</p>
+</blockquote>
+<p>3、Oracle的系统全局（SGA）的主要部件有哪些？</p>
+<p>SGA是所有用户进程共享的一块内存区域，主要部件有高速数据缓冲区、共享池、重做日志缓冲区、Java池和大型池。</p>
+<blockquote>
+<p>（1）<strong>数据高速缓冲区</strong>：存放着Oracle系统最近使用过的数据库数据块。</p>
+<p>（2）<strong>共享池</strong>：相当于程序高速缓冲区，所有的用户程序都存放在共享SQL池中。</p>
+<p>（3）<strong>重做日志缓冲区</strong>：用于缓冲区在对数据进行修改的操作过程中生成的重做记录.<br>（4）<strong>大型池</strong>：在SGA区中不是必需的内存结构，只在某些特殊情况下，实例需要使用大型池来减轻共享池的访问压力，常用情况有：备份和恢复、执行具有大量排序操作的SQL语句、使用并行查询时。</p>
+</blockquote>
+<p>4、在哪些情况下，实例需要使用大型池来减轻共享池的访问压力？</p>
+<p>(1)使用恢复管理器进行备份和恢复操作时，大型池将作为I&#x2F;O缓冲区使用。</p>
+<p>(2)使用I&#x2F;O Slave仿真异步I&#x2F;O功能时，大型池将被作为I&#x2F;O缓冲区使用。</p>
+<p>(3)执行具有大量排序操作的SQL语句。 　　　　</p>
+<p>(4)当使用并行查询时，大型池作为并行查询进程彼此交换信息的地方。 </p>
+<p>5、回滚到指定保存点时，将完成哪些主要的工作？</p>
+<ol>
+<li>回滚保存点之后的部分事务。</li>
+<li>删除在该保存点之后建立的全部保存点，但保留该保存点，以便多次回避。</li>
+<li>解除保存点之后表的封锁或行的封锁。</li>
+</ol>
+<p>6、自治事务提供了一种利用PL&#x2F;SQL控制事务的新方法，可以用于哪几种情况？</p>
+<ul>
+<li>顶层匿名块</li>
+<li>本地（过程中的过程）、独立或打包的函数和过程</li>
+<li>对象类型的方法</li>
+<li>数据库触发器</li>
+</ul>
+<h2 id="编程题"><a href="#编程题" class="headerlink" title="编程题"></a>编程题</h2><p>1、在scott模式下，创建学生表（XSB），其表结构如下：</p>
+<table>
+<thead>
+<tr>
+<th>列名</th>
+<th>数据类型</th>
+<th>是否可空</th>
+<th>默认值</th>
+<th>说明</th>
+<th>列名含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>XH</td>
+<td>char(6)</td>
+<td>╳</td>
+<td>无</td>
+<td>主键</td>
+<td>学号</td>
+</tr>
+<tr>
+<td>Xm</td>
+<td>char(8)</td>
+<td>╳</td>
+<td>无</td>
+<td></td>
+<td>姓名</td>
+</tr>
+<tr>
+<td>Xb</td>
+<td>char(2)</td>
+<td>╳</td>
+<td>“男”</td>
+<td></td>
+<td>性别</td>
+</tr>
+<tr>
+<td>Cssj</td>
+<td>date</td>
+<td>╳</td>
+<td>无</td>
+<td></td>
+<td>出生日期</td>
+</tr>
+<tr>
+<td>Zy</td>
+<td>char(12)</td>
+<td>√</td>
+<td>无</td>
+<td></td>
+<td>专业</td>
+</tr>
+<tr>
+<td>Zxf</td>
+<td>number(2)</td>
+<td>√</td>
+<td>0</td>
+<td></td>
+<td>总学分</td>
+</tr>
+<tr>
+<td>Bz</td>
+<td>varchar2(200)</td>
+<td>√</td>
+<td>无</td>
+<td></td>
+<td>备注</td>
+</tr>
+</tbody></table>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> XSB(<br>  XH <span class="hljs-type">char</span>(<span class="hljs-number">6</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> <span class="hljs-keyword">PRIMARY</span> KEY,<br>  XM <span class="hljs-type">char</span>(<span class="hljs-number">8</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,<br>  XB <span class="hljs-type">char</span>(<span class="hljs-number">2</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-string">&#x27;1&#x27;</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,<br>  CSSJ <span class="hljs-type">date</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,<br>  ZY <span class="hljs-type">char</span>(<span class="hljs-number">12</span>) <span class="hljs-keyword">NULL</span>,<br>  zxf number(<span class="hljs-number">2</span>) <span class="hljs-keyword">NULL</span>,<br>  BZ varchar2(<span class="hljs-number">200</span>) <span class="hljs-keyword">NULL</span><br>   );<br></code></pre></td></tr></table></figure>
+<p>2、在scott模式下，创建课程表（KCB），其表结构如下：</p>
+<table>
+<thead>
+<tr>
+<th>列名</th>
+<th>数据类型</th>
+<th>是否可空</th>
+<th>默认值</th>
+<th>说明</th>
+<th>列名含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>KCH</td>
+<td>char(3)</td>
+<td>╳</td>
+<td>无</td>
+<td>主键</td>
+<td>课程号</td>
+</tr>
+<tr>
+<td>KCM</td>
+<td>char(16)</td>
+<td>╳</td>
+<td>无</td>
+<td></td>
+<td>课程名</td>
+</tr>
+<tr>
+<td>KKXQ</td>
+<td>number(1)</td>
+<td>√</td>
+<td>1</td>
+<td></td>
+<td>开课学期</td>
+</tr>
+<tr>
+<td>XS</td>
+<td>number(2)</td>
+<td>√</td>
+<td>0</td>
+<td></td>
+<td>学时</td>
+</tr>
+<tr>
+<td>XF</td>
+<td>number(1)</td>
+<td>╳</td>
+<td>0</td>
+<td></td>
+<td>学分</td>
+</tr>
+</tbody></table>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> KCB(<br> KCH <span class="hljs-type">char</span>(<span class="hljs-number">3</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> <span class="hljs-keyword">PRIMARY</span> KEY,<br> KCM <span class="hljs-type">char</span>(<span class="hljs-number">16</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,<br> KKXQ number(<span class="hljs-number">1</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-string">&#x27;1&#x27;</span>,<br> XS number(<span class="hljs-number">2</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-string">&#x27;0&#x27;</span>,<br> XF number(<span class="hljs-number">1</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-string">&#x27;0&#x27;</span><br> );<br></code></pre></td></tr></table></figure>
+<p>3、假设有一个与jobs表结构一样的表jobs_temp，然后将jobs表中最高工资额（max_salary）大于10000的记录插入到新表jobs_temp中。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> jobs_temp <span class="hljs-keyword">select</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">from</span> jobs <span class="hljs-keyword">where</span> jobs.max_salary<span class="hljs-operator">&gt;</span><span class="hljs-number">10000</span>;<br></code></pre></td></tr></table></figure>
+
+<p>4、在scott模式下，把emp表中职务为销售员（SALESMAN）的工资上调20%。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">update</span> emp <span class="hljs-keyword">set</span> sal<span class="hljs-operator">=</span>sal<span class="hljs-operator">*</span>(<span class="hljs-number">1</span><span class="hljs-operator">+</span><span class="hljs-number">0.2</span>) <span class="hljs-keyword">where</span> job<span class="hljs-operator">=</span><span class="hljs-string">&#x27;SALESMAN&#x27;</span>;<br></code></pre></td></tr></table></figure>
+<p>5、在emp表中，查询工资大于部门编号为10的任意一个员工工资的其他部门的员工信息（包括部门编号，员工名和工资）。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> deptno,ename,sal <span class="hljs-keyword">from</span> emp <span class="hljs-keyword">where</span> sal<span class="hljs-operator">&gt;</span><span class="hljs-keyword">any</span>(<span class="hljs-keyword">select</span> sal <span class="hljs-keyword">from</span> emp <span class="hljs-keyword">where</span> DEPTNO<span class="hljs-operator">=</span><span class="hljs-number">10</span>)<span class="hljs-keyword">and</span> deptno<span class="hljs-operator">!=</span><span class="hljs-number">10</span>;<br></code></pre></td></tr></table></figure>
+
+<p>6、在Scott模式下，查询emp表中所有管理者所管理的下属员工信息。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> e2.ename <span class="hljs-keyword">as</span> 上层管理层,e1.ename <span class="hljs-keyword">as</span> 下属员工 <span class="hljs-keyword">from</span> emp e1 <span class="hljs-keyword">left</span> <span class="hljs-keyword">join</span> emp e2 <span class="hljs-keyword">on</span> e1.mgr<span class="hljs-operator">=</span>e2.empno <span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> e1.mgr<br></code></pre></td></tr></table></figure>
+<p>7、声明一个检索emp表中雇员信息的游标，该游标名为cur_emp，然后打开游标，并指定检索职务是“MANAGER”的雇员信息（包括：empno,ename,sal），接着使用fetch…into语句和while循环读取游标中的所有雇员信息，最后输出读取的雇员信息。</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">set</span> serveroutput <span class="hljs-keyword">on</span><span class="hljs-comment">/**/</span><br><span class="hljs-keyword">declare</span><br><span class="hljs-comment">/*声明游标，检索信息*/</span><br><span class="hljs-keyword">cursor</span> cur_emp(var_job <span class="hljs-keyword">in</span> varchar2:=<span class="hljs-string">&#x27;SALESMAN&#x27;</span>)<br><span class="hljs-keyword">is</span> <span class="hljs-keyword">select</span> empno,ename,sal <span class="hljs-keyword">from</span> emp <span class="hljs-keyword">where</span> job=var_job;<br><span class="hljs-keyword">type</span> record_emp <span class="hljs-keyword">is</span> <span class="hljs-type">record</span> <span class="hljs-comment">/*声明一个记录类型（RECORD类型）*/</span><br>(<br>	<span class="hljs-comment">/*定义当前记录的成员变量*/</span><br>	var_empno emp.empno<span class="hljs-meta">%type</span>,<br>	var_ename emp.ename<span class="hljs-meta">%type</span>,<br>	var_sal emp.sal<span class="hljs-meta">%type</span><br>);<br>emp_row record_emp; <span class="hljs-comment">/*声明一个RECORD——emp类型的变量*/</span><br><span class="hljs-keyword">begin</span><br><span class="hljs-keyword">open</span> cur_emp(<span class="hljs-string">&#x27;MANAGER&#x27;</span>); <span class="hljs-comment">/*打开游标*/</span><br><span class="hljs-keyword">fetch</span> cur_emp <span class="hljs-keyword">into</span> emp_row; <span class="hljs-comment">/*先让指针指向结果集中的第一行，并将值保存到emp_row*/</span><br><span class="hljs-keyword">while</span> cur_emp%<span class="hljs-built_in">found</span> <span class="hljs-keyword">loop</span><br>dbms_output.put_line(emp_row.var_ename||<span class="hljs-string">&#x27;的编号是&#x27;</span>||emp_row.var_empno||<span class="hljs-string">&#x27;,工资是&#x27;</span>||emp_row.var_sal);<br><span class="hljs-keyword">fetch</span> cur_emp <span class="hljs-keyword">into</span> emp_row; <span class="hljs-comment">/*让指针指向结果集中的下一行，并将值保存到emp_row中*/</span><br><span class="hljs-keyword">end</span> <span class="hljs-keyword">loop</span>;<br><span class="hljs-keyword">close</span> cur_emp; <span class="hljs-comment">/*关闭游标*/</span><br><span class="hljs-keyword">end</span>;<br>/<br></code></pre></td></tr></table></figure>
+
+<p>8、在Scott模式下，把emp表中销售员（即SALESMAN）的工资上调20%，然后使用隐式游标sql的%rowcount属性输出上调工资的员工数量。</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">set</span> serveroutput <span class="hljs-keyword">on</span><span class="hljs-comment">/**/</span><br><span class="hljs-keyword">begin</span> <br><span class="hljs-keyword">update</span> emp <span class="hljs-keyword">set</span> sal=sal*(<span class="hljs-number">1</span>+<span class="hljs-number">0.2</span>) <span class="hljs-keyword">where</span> job=<span class="hljs-string">&#x27;SALESMAN&#x27;</span>;<br><span class="hljs-keyword">if</span> <span class="hljs-keyword">sql</span>%notfound <span class="hljs-keyword">then</span>  <span class="hljs-comment">/*若update语句没有影响到任何一行数据*/</span><br>dbms_output.put_line(<span class="hljs-string">&#x27;无员工上调工资&#x27;</span>);<br><span class="hljs-keyword">else</span>                  <span class="hljs-comment">/*若update语句至少影响到一行数据*/</span><br>dbms_output.put_line(<span class="hljs-string">&#x27;有&#x27;</span>||<span class="hljs-keyword">sql</span>%rowcount||<span class="hljs-string">&#x27;个雇员工资上调20%&#x27;</span>);<br><span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>;<br><span class="hljs-keyword">end</span>;<br>/<br></code></pre></td></tr></table></figure>
+
+
+
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
+      
+        <a href="/tags/Oarcle/">#Oarcle</a>
+      
+        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">#数据库</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Oracle复习题</div>
+      <div>http://example.com/2021/08/23/Oracle复习题/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Beitragsautor</div>
+          <div>lzdong</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Veröffentlicht am</div>
+          <div>August 23, 2021</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Urheberrechtshinweis</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/09/01/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2/" title="Hello Blog">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Hello Blog</span>
+                        <span class="visible-mobile">Vorheriger</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createCssLink('https://lib.baomitu.com/waline/2.14.1/waline.min.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/waline/2.14.1/waline.min.js', function() {
+        var options = Object.assign(
+          {"serverURL":"https://blog-waline-manchesterss.vercel.app/","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10,"placeholder":"欢迎留下脚印:)-(支持Markdown语法！)","langMode":{"admin":"博主兼管理员","nick":"昵称(选填)","mail":"邮箱(必填)","link":"网址(选填)"}},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        Waline.init(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Inhaltsverzeichnis</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('mermaid' in window) {
+        mermaid.init();
+      }
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Stichwort</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog funktioniert am besten mit aktiviertem JavaScript</div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,843 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-ZN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/logo.png">
+  <link rel="icon" href="/img/logo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="lzdong">
+  <meta name="keywords" content="后端开发/游戏制作人/恐怖片爱好者">
+  
+    <meta name="description" content="SpringBoot初体验Java语言从诞生之日起，就被广泛的应用在了服务器端，它接收来自浏览器的请求（request），在经过一系列的逻辑处理之后，向浏览器返回响应（response），这是典型的浏览器（B）&#x2F;服务器（S）工作模式，Java在服务器端扮演主要角色。 伴随着Spring和Struts的诞生，一种新的组合式框架SSH 得到了广泛的使用，其中的H 指的Hibernate 。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SSM框架-SpringBoot初体验">
+<meta property="og:url" content="http://example.com/2021/10/06/2021-10-6-SSM%E6%A1%86%E6%9E%B6-SpringBoot%E5%88%9D%E4%BD%93%E9%AA%8C/index.html">
+<meta property="og:site_name" content="lzdong&#39;s space">
+<meta property="og:description" content="SpringBoot初体验Java语言从诞生之日起，就被广泛的应用在了服务器端，它接收来自浏览器的请求（request），在经过一系列的逻辑处理之后，向浏览器返回响应（response），这是典型的浏览器（B）&#x2F;服务器（S）工作模式，Java在服务器端扮演主要角色。 伴随着Spring和Struts的诞生，一种新的组合式框架SSH 得到了广泛的使用，其中的H 指的Hibernate 。">
+<meta property="og:locale" content="zh_ZN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181117220632243.png">
+<meta property="article:published_time" content="2021-10-06T07:44:36.335Z">
+<meta property="article:modified_time" content="2021-10-06T08:16:50.017Z">
+<meta property="article:author" content="lzdong">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="SSM">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20181117220632243.png">
+  
+  
+  
+  <title>SSM框架-SpringBoot初体验 - lzdong&#39;s space</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>lzdong&#39;s space</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>主页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-playstation-fill"></i>
+                <span>更多</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid">
+                    
+                    <span>Fluid</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">
+                    
+                    <span>Hexo</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://cdn.jsdelivr.net/gh/Manchesterss/picx-image@main/2020/wallhaven-1kr253.1d606hcba7q8.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="SSM框架-SpringBoot初体验"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-10-06 15:44" pubdate>
+          October 6, 2021 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          8.2k wörter
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          69 minuten
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">SSM框架-SpringBoot初体验</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="SpringBoot初体验"><a href="#SpringBoot初体验" class="headerlink" title="SpringBoot初体验"></a>SpringBoot初体验</h1><p><code>Java</code>语言从诞生之日起，就被广泛的应用在了服务器端，它接收来自浏览器的请求（<code>request</code>），在经过一系列的逻辑处理之后，向浏览器返回响应（<code>response</code>），这是典型的浏览器（<code>B</code>）&#x2F;服务器（<code>S</code>）工作模式，<code>Java</code>在服务器端扮演主要角色。</p>
+<p>伴随着<code>Spring</code>和<code>Struts</code>的诞生，一种新的组合式框架<code>SSH</code> 得到了广泛的使用，其中的<code>H</code> 指的<code>Hibernate</code> 。 <code>Servlet</code>有一个很大的问题，就是不够模块化，所有的代码杂合在一起。比如业务处理和数据库操作放在一起，这样的代码维护性差。 <code>SSH</code>中的三个框架分别承担了一定的角色，互相之间耦合性较低。其中<code>Struts</code>负责流程控制，<code>Spring</code>负责业务控制，<code>Hibernate</code> 负责和数据库交接。</p>
+<p><code>SSH</code>及其衍生框架也有一个问题，它们需要配置很多东西，比如数据源、数据库事务、日志、服务器等等。<code>SpringBoot</code>的出现解决了这个问题，基于“约定大于配置”的思想，<code>SpringBoot</code>提供了很多默认的配置，通常情况下，如果你没有特殊的要求，就不需要再考虑配置的事情。</p>
+<h2 id="第1关：第一个Spring-Boot程序"><a href="#第1关：第一个Spring-Boot程序" class="headerlink" title="第1关：第一个Spring Boot程序"></a>第1关：第一个Spring Boot程序</h2><div class="note note-success">
+            <ul><li>如何创建一个<code>Spring Boot</code>程序；</li><li>如何创建一个<code>web</code>程序。</li></ul><p>具体创建过程此处不再赘述</p>
+          </div>
+
+<p>课程视频 - 搭建一个SpringBoot 程序</p>
+<p><video src="http://outin-396971199eed11e991a100163e1c7426.oss-cn-shanghai.aliyuncs.com/sv/e30d770-16d7bc98f14/e30d770-16d7bc98f14.mp4" controls="true" controlslist="nodownload" width="90%" height="55%" poster="http://video.educoder.net/00b6c9d22a644083ad2e4994156f960b/snapshots/98c3bcf9619c4525889a782a08944dfd-00005.jpg" __idm_id__="1063996417">您的浏览器不支持 video 标签。</video></p>
+
+<h3 id="相关知识"><a href="#相关知识" class="headerlink" title="相关知识"></a>相关知识</h3><h4 id="项目启动类DemoApplication"><a href="#项目启动类DemoApplication" class="headerlink" title="项目启动类DemoApplication"></a><strong>项目启动类DemoApplication</strong></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.example.demo;<br><span class="hljs-keyword">import</span> org.springframework.boot.SpringApplication;<br><span class="hljs-keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;<br><span class="hljs-comment">//注解SpringBootApplication表明项目基于SpringBoot，同时下面的类是整个项目的启动类。</span><br><span class="hljs-meta">@SpringBootApplication</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">NetApplication</span> &#123;<br>    <span class="hljs-comment">//启动类有一个main函数是SpringBoot的特点之一，和普通的Java工程一样是使用main函数启动的。</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-comment">//SpringApplication是SpringBoot框架的一个核心类，run是它的一个静态方法，方法的参数为当前类的Class对象和用户输入args</span><br>        SpringApplication.run(NetApplication.class, args);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="创建一个Web程序"><a href="#创建一个Web程序" class="headerlink" title="创建一个Web程序"></a>创建一个Web程序</h4><p>首先，我们在导入的项目的<code>pom.xml</code>文件里加入如下依赖：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span> <br>	<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>        <br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<div class="note note-warning">
+            <p>注：该依赖引入了<code>web</code>模块开发需要的相关<code>jar</code>包，版本信息都由<code>spring-boot-starter-parent</code>控制。</p>
+          </div>
+
+<p>接着创建一个<code>controller</code>包，并在下面创建一个<code>HelloController</code>类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.example.demo.controller;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RestController;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;<br><span class="hljs-meta">@RestController</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">HelloController</span> &#123;<br>    <span class="hljs-meta">@RequestMapping(&quot;/&quot;)</span><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">index</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Hello Spring Boot!&quot;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>该类被标记为@RestController，这意味着<code>Spring MVC</code>可以使用它来处理<code>Web</code>请求。 @RequestMapping 注释提供“路由”信息。它告诉<code>Spring</code>，任何带有<code>/</code>路径的<code>HTTP</code>请求都应该映射到<code>index（）</code>方法。 从浏览器调用或在命令行上使用<code>curl</code>时，该方法返回纯文本。 这是因为@RestController结合了@Controller和@ResponseBody，两个注释导致<code>Web</code>请求返回数据而不是视图。</p>
+<p>这样一个简单的<code>Web</code>程序就搭建起来了，然后就可以运行该程序了，运行成功后，打开浏览器，输入<code>http://localhost:8080</code>，得到的页面如下：</p>
+<p><img src="https://data.educoder.net/api/attachments/394623" srcset="/img/loading.gif" lazyload></p>
+<h3 id="任务代码"><a href="#任务代码" class="headerlink" title="任务代码"></a>任务代码</h3><div class="note note-secondary">
+            <p><strong>编程要求</strong></p><ul><li>补全代码，当在浏览器输入<code>http://localhost:8080/hello</code>时，页面返回<code>Say Hello!</code>.</li></ul>
+          </div>
+
+<p><code>HelloController.java</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.example.demo.controller;<br><br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RestController;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;<br><br><span class="hljs-meta">@RestController</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">HelloController</span> &#123;<br>    <span class="hljs-comment">//添加路由并编写相应方法</span><br>	<span class="hljs-comment">/**********   Begin   **********/</span><br>     <span class="hljs-meta">@RequestMapping(&quot;/hello&quot;)</span><br>     <span class="hljs-keyword">public</span> String <span class="hljs-title function_">index</span><span class="hljs-params">()</span>&#123;<br>         <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Say Hello!&quot;</span>;<br>     &#125;<br>   <span class="hljs-comment">/**********   End   **********/</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><code>DemoApplication.java</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.example.demo;<br><br><span class="hljs-keyword">import</span> org.springframework.boot.SpringApplication;<br><span class="hljs-keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;<br><br><span class="hljs-meta">@SpringBootApplication</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">DemoApplication</span> &#123;<br>	<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>		<span class="hljs-comment">//启动Spring Boot</span><br>		<span class="hljs-comment">/**********   Begin   **********/</span><br>       SpringApplication.run(DemoApplication.class,args);<br>		<span class="hljs-comment">/**********   End   **********/</span><br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="第2关：实现登录、注册、下线功能"><a href="#第2关：实现登录、注册、下线功能" class="headerlink" title="第2关：实现登录、注册、下线功能"></a>第2关：实现登录、注册、下线功能</h2><p><code>Spring Boot</code>非常适合<code>Web</code>应用程序开发，你可以使用其自带的<code>Tomcat</code>，<code>Jetty</code>，<code>Undertow</code>或<code>Netty</code>创建<code>HTTP</code>服务器。</p>
+<h3 id="相关知识-1"><a href="#相关知识-1" class="headerlink" title="相关知识"></a>相关知识</h3><h4 id="Web-请求"><a href="#Web-请求" class="headerlink" title="Web 请求"></a>Web 请求</h4><p><code> Spring Boot</code>既然是<code>Web</code>后台框架，那么它就需要处理<code>Web</code>请求，我们来看一个典型的<code>Web</code>请求（按下<code>F12</code>键，选择网络，然后点击本网站的登录按钮，你看到的第一个请求如下）：</p>
+<p><img src="https://data.educoder.net/api/attachments/358995" srcset="/img/loading.gif" lazyload alt="图 1 Web请求图"></p>
+<p>请求网址和地址栏的网址没有本质的区别，地址栏网址请求的是整个页面，而上面的这种网址请求的一般是页面中的一个具体的元素：一张图片，一段音乐等，它的粒度更小。</p>
+<p>用<code>Spring Boot</code>处理这种请求的时候，关键是把不同的请求映射到不同的<code>Java</code> 方法上，比如我们可能会用<code>LoginAction()</code>方法来处理<code>/login</code>请求，而用<code>RegisterAction()</code>来处理<code>/register</code>请求。</p>
+<h4 id="用-Spring-Boot-处理-Web-请求，添加-Java-类"><a href="#用-Spring-Boot-处理-Web-请求，添加-Java-类" class="headerlink" title="用 Spring Boot 处理 Web 请求，添加 Java 类"></a>用 Spring Boot 处理 Web 请求，添加 Java 类</h4><p>在上一关的代码的基础上做如下修改，我们的项目就能实现登录处理功能。</p>
+<p>第一步，我们在<code>controller</code>包下新建一个类<code>BlogController</code>，代码如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.example.demo.controller;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RestController;<br><span class="hljs-comment">//这里也可以有一个@RequestMapping(&quot;/test&quot;)，如果有，那么下面的第一个方法拦截的就是/test/login结尾的请求，也就是说，这里的注解配置的是上一层的拦截地址。</span><br><span class="hljs-meta">@RestController</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">BlogController</span> &#123;<br>    <span class="hljs-comment">//表示下面的方法处理的是以/login结尾的请求。</span><br>    <span class="hljs-meta">@RequestMapping(&quot;/login&quot;)</span><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">Login</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Welcome Login!&quot;</span>;<br>    &#125;<br>    <span class="hljs-comment">//表示下面的方法处理的是以/register结尾的请求。</span><br>    <span class="hljs-meta">@RequestMapping(&quot;/register&quot;)</span><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">Register</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Welcome Register!&quot;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>还是按照上一关介绍的方法运行这个项目，运行成功后，打开浏览器，输入<code>http://localhost:8080/login</code>，得到的页面如下：</p>
+<p><img src="https://data.educoder.net/api/attachments/359032" srcset="/img/loading.gif" lazyload alt="图 2 页面一"><br>我们再输入<code>http://localhost:8080/register</code> ，得到的页面如下：</p>
+<p><img src="https://data.educoder.net/api/attachments/359035" srcset="/img/loading.gif" lazyload alt="图 3 页面二"></p>
+<p>不同的请求被不同的方法做了处理，最终返回相应的结果。</p>
+<h3 id="任务代码-1"><a href="#任务代码-1" class="headerlink" title="任务代码"></a>任务代码</h3><div class="note note-secondary">
+            <p><strong>编程要求</strong></p><p>本关的编程任务是在右侧的<code>Begin</code>和<code>End</code>中间添加一个具有下线功能的<code>Java</code>方法，要求该方法能处理以<code>/logout</code>结尾的<code>Web</code>请求，然后返回字符串<code>GoodBye!</code>。（方法的名字不做限制）</p>
+          </div>
+
+<p><code>MyController.java</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.educoder.net;<br><span class="hljs-keyword">import</span> org.springframework.stereotype.Controller;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.ResponseBody;<br><br><span class="hljs-meta">@Controller</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyController</span> &#123;<br>	<span class="hljs-meta">@RequestMapping(&quot;/login&quot;)</span><br>	<span class="hljs-meta">@ResponseBody</span><br>	<span class="hljs-keyword">public</span> String <span class="hljs-title function_">Login</span><span class="hljs-params">()</span>&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Welcome Login!&quot;</span>;<br>	&#125;<br>	<span class="hljs-meta">@RequestMapping(&quot;/register&quot;)</span><br>	<span class="hljs-meta">@ResponseBody</span><br>	<span class="hljs-keyword">public</span> String <span class="hljs-title function_">Register</span><span class="hljs-params">()</span>&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Welcome Register!&quot;</span>;<br>	&#125;<br>	<span class="hljs-comment">/********* Begin *********/</span><br>	<span class="hljs-meta">@RequestMapping(&quot;/logout&quot;)</span><br>	<span class="hljs-meta">@ResponseBody</span><br>	<span class="hljs-keyword">public</span> String <span class="hljs-title function_">Logout</span><span class="hljs-params">()</span>&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-string">&quot;GoodBye!&quot;</span>;<br>	&#125;<br>	<span class="hljs-comment">/********* End *********/</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="第3关：Spring-Boot练习题"><a href="#第3关：Spring-Boot练习题" class="headerlink" title="第3关：Spring Boot练习题"></a>第3关：Spring Boot练习题</h2><div class="note note-primary">
+            <ul><li>如何获取<code>Web</code>请求对象；</li><li>如何获取<code>Web</code>请求返回的内容。</li></ul>
+          </div>
+
+<h3 id="相关知识-2"><a href="#相关知识-2" class="headerlink" title="相关知识"></a>相关知识</h3><h4 id="Sprig-Boot整合AOP"><a href="#Sprig-Boot整合AOP" class="headerlink" title="Sprig Boot整合AOP"></a>Sprig Boot整合AOP</h4><p>在<code>pom.xml</code>中添加相关依赖：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-aop<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="如何获取-Web-请求对象"><a href="#如何获取-Web-请求对象" class="headerlink" title="如何获取 Web 请求对象"></a>如何获取 Web 请求对象</h4><p>在<code>Spring Boot</code>中我们可以通过<code>RequestContextHolder</code>很方便的获取请求对象。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">ServletRequestAttributes</span> <span class="hljs-variable">attributes</span> <span class="hljs-operator">=</span> (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();<br><span class="hljs-type">HttpServletRequest</span> <span class="hljs-variable">request</span> <span class="hljs-operator">=</span> attributes.getRequest();<br></code></pre></td></tr></table></figure>
+
+<p>获取<code>HttpServletRequest</code>对象后，我们可以获取其中的许多信息，比如：</p>
+<ul>
+<li><p><code>request.getRequestURL()</code>可以获取<code>URL</code>；</p>
+</li>
+<li><p><code>request.getMethod()</code>可以获取请求方式。</p>
+</li>
+<li><p>#####如何获取 Web 请求返回的内容 </p>
+</li>
+<li><p>使用<code>@AfterReturning</code>通知在切入点返回内容之后切入内容（用来对处理返回值做一些加工处理）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@AfterReturning(returning = &quot;ret&quot;, pointcut = &quot;webLog()&quot;)</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doAfterReturning</span><span class="hljs-params">(Object ret)</span> <span class="hljs-keyword">throws</span> Throwable &#123;<br>        <span class="hljs-comment">// 获取处理完请求后的返回内容</span><br>        logger.info(<span class="hljs-string">&quot;RESPONSE : &quot;</span> + ret);<br>    &#125;<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="任务代码-2"><a href="#任务代码-2" class="headerlink" title="任务代码"></a>任务代码</h3><div class="note note-secondary">
+            <p><strong>编程要求</strong></p><p>请仔细阅读右侧代码，根据方法内的提示，在<code>Begin - End</code>区域内进行代码补充（有个<code>pom.xml</code>需要填充相关依赖），使用<code>AOP</code>记录<code>Web</code>登录请求日志，获取请求<code>URL</code>，请求方式以及请求后的返回内容。 </p><p>并在请求内容前后输出<code>---------------请求内容----------------</code> </p><p>在返回内容前后输出<code>---------------返回内容----------------</code>。 </p><p>后台会自动启动该<code>Spring Boot</code>工程并请求以<code>/Login</code>结尾的<code>Web</code>请求。</p>
+          </div>
+
+<p><code>BlogAspect.java</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.yy.hello;<br><span class="hljs-keyword">import</span> java.util.Enumeration;<br><br><span class="hljs-keyword">import</span> javax.servlet.http.HttpServletRequest;<br><br><span class="hljs-keyword">import</span> org.slf4j.Logger;<br><span class="hljs-keyword">import</span> org.slf4j.LoggerFactory;<br><span class="hljs-keyword">import</span> org.aspectj.lang.JoinPoint;<br><span class="hljs-keyword">import</span> org.aspectj.lang.annotation.AfterReturning;<br><span class="hljs-keyword">import</span> org.aspectj.lang.annotation.Aspect;<br><span class="hljs-keyword">import</span> org.aspectj.lang.annotation.Before;<br><span class="hljs-keyword">import</span> org.aspectj.lang.annotation.Pointcut;<br><span class="hljs-keyword">import</span> org.springframework.stereotype.Component;<br><span class="hljs-keyword">import</span> org.springframework.web.context.request.RequestContextHolder;<br><span class="hljs-keyword">import</span> org.springframework.web.context.request.ServletRequestAttributes;<br><span class="hljs-meta">@Aspect</span><br><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">BlogAspect</span> &#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-type">Logger</span> <span class="hljs-variable">logger</span> <span class="hljs-operator">=</span> LoggerFactory.getLogger(getClass());<br>    <span class="hljs-comment">//定义切点</span><br>    <span class="hljs-meta">@Pointcut(&quot;execution(public * com.yy.hello.controller.Blog.Login())&quot;)</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">webLog</span><span class="hljs-params">()</span> &#123;<br><br>    &#125;<br>    <span class="hljs-comment">//前置通知，方法调用前被调用</span><br>    <span class="hljs-meta">@Before(&quot;webLog()&quot;)</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doBefore</span><span class="hljs-params">(JoinPoint joinPoint)</span> <span class="hljs-keyword">throws</span> Throwable &#123;<br>		  <span class="hljs-comment">/**********   Begin   **********/</span><br>        <span class="hljs-comment">// 获取HttpServletRequest对象</span><br>        <span class="hljs-type">ServletRequestAttributes</span> <span class="hljs-variable">attributes</span> <span class="hljs-operator">=</span> (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();<br>        <span class="hljs-type">HttpServletRequest</span> <span class="hljs-variable">request</span> <span class="hljs-operator">=</span> attributes.getRequest();<br>        <span class="hljs-comment">// 打印所给要求中的固定格式</span><br>        logger.info(<span class="hljs-string">&quot;---------------请求内容----------------&quot;</span>);<br>        <span class="hljs-comment">//打印URL</span><br>        logger.info(<span class="hljs-string">&quot;URL : &quot;</span>+request.getRequestURL());<br>        <span class="hljs-comment">//打印请求方式</span><br>        logger.info(<span class="hljs-string">&quot;HTTP_METHOD : &quot;</span>+request.getMethod());<br>        <span class="hljs-comment">// 打印所给要求中的固定格式</span><br>        logger.info(<span class="hljs-string">&quot;---------------请求内容----------------&quot;</span>);<br>		  <span class="hljs-comment">/**********   End   **********/</span><br>    &#125;<br>    <span class="hljs-comment">//在方法执行完结后打印返回内容</span><br>    <span class="hljs-meta">@AfterReturning(returning = &quot;ret&quot;, pointcut = &quot;webLog()&quot;)</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doAfterReturning</span><span class="hljs-params">(Object ret)</span> <span class="hljs-keyword">throws</span> Throwable &#123;<br>				  <span class="hljs-comment">/**********   Begin   **********/</span><br>        <span class="hljs-comment">// 打印所给要求中的固定格式</span><br>        logger.info(<span class="hljs-string">&quot;---------------返回内容----------------&quot;</span>);<br>        <span class="hljs-comment">// 处理完请求，打印返回内容</span><br>        logger.info(<span class="hljs-string">&quot;RESPONSE : &quot;</span> + ret);<br>		<span class="hljs-comment">// 打印所给要求中的固定格式</span><br>        logger.info(<span class="hljs-string">&quot;---------------返回内容----------------&quot;</span>);<br>				  <span class="hljs-comment">/**********   End   **********/</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><code>Blog.java</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.yy.hello.controller;<br><br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RestController;<br><br><span class="hljs-meta">@RestController</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Blog</span> &#123;<br><br>    <span class="hljs-comment">//添加路由映射到/Login并编写相应方法返回Welcome Login!</span><br>	<span class="hljs-comment">/**********   Begin   **********/</span><br>    <span class="hljs-meta">@RequestMapping(&quot;/Login&quot;)</span><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">Login</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Welcome Login!&quot;</span>; <br>    &#125;<br>   <span class="hljs-comment">/**********   End   **********/</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<center><b>END</b></center>
+
+<center><img src="https://cdn.jsdelivr.net/gh/Manchesterss/picx-image@main/2020/幻想逍遥侠_20210907_191550.7eshnl3j6gc0.gif" srcset="/img/loading.gif" lazyload style="zoom:200%;" /></center>
+
+<blockquote>
+<p>头歌编程：<a target="_blank" rel="noopener" href="https://www.educoder.net/shixuns/mgjhuns8/challenges">SpringBoot初体验</a></p>
+</blockquote>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Java/SSM/" class="category-chain-item">SSM</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Java/">#Java</a>
+      
+        <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
+      
+        <a href="/tags/SSM/">#SSM</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>SSM框架-SpringBoot初体验</div>
+      <div>http://example.com/2021/10/06/2021-10-6-SSM框架-SpringBoot初体验/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Beitragsautor</div>
+          <div>lzdong</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Veröffentlicht am</div>
+          <div>October 6, 2021</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Urheberrechtshinweis</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/12/26/LeetCode/" title="LeetCode practise">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">LeetCode practise</span>
+                        <span class="visible-mobile">Vorheriger</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/10/06/SSM%E5%85%B3%E4%BA%8ERedis/" title="SSM框架-Redis">
+                        <span class="hidden-mobile">SSM框架-Redis</span>
+                        <span class="visible-mobile">Nächster</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createCssLink('https://lib.baomitu.com/waline/2.14.1/waline.min.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/waline/2.14.1/waline.min.js', function() {
+        var options = Object.assign(
+          {"serverURL":"https://blog-waline-manchesterss.vercel.app/","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10,"placeholder":"欢迎留下脚印:)-(支持Markdown语法！)","langMode":{"admin":"博主兼管理员","nick":"昵称(选填)","mail":"邮箱(必填)","link":"网址(选填)"}},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        Waline.init(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Inhaltsverzeichnis</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('mermaid' in window) {
+        mermaid.init();
+      }
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Stichwort</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog funktioniert am besten mit aktiviertem JavaScript</div>
+  </noscript>
+</body>
+</html>
