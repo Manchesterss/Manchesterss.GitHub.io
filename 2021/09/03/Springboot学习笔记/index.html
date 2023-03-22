@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Manchesterss/picx-image@main/2020/image-20210516181041922.kub7xhn17a8.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Manchesterss/picx-image@main/2020/image-20210514082442063.5q5qniu7oxc0.png">
 <meta property="article:published_time" content="2021-09-03T14:33:14.000Z">
-<meta property="article:modified_time" content="2023-03-21T11:52:33.681Z">
+<meta property="article:modified_time" content="2023-03-22T05:04:47.429Z">
 <meta property="article:author" content="lzdong">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="笔记">
@@ -273,7 +273,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          23k wörter
+          23k words
         
       </span>
     
@@ -284,7 +284,7 @@
         
         
         
-          192 minuten
+          192 mins
         
       </span>
     
@@ -652,29 +652,8 @@ a[ajax]--&gt;url--&gt;Controller
 
 <h3 id="application-properties"><a href="#application-properties" class="headerlink" title="application.properties"></a>application.properties</h3><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-comment">#spring.datasource.driver-class-name=com.mysql.jdbc.Driver</span><br><span class="hljs-comment">#spring.datasource.url=jdbc:mysql://localhost:3306/ems</span><br><span class="hljs-comment">#spring.datasource.username=root</span><br><span class="hljs-comment">#spring.datasource.password=root</span><br><span class="hljs-attr">mybatis.mapper-locations</span>=<span class="hljs-string">classpath:/static/Mapper/*.xml</span><br><span class="hljs-attr">server.port</span>=<span class="hljs-string">8080</span><br><span class="hljs-attr">spring.datasource.driver-class-name</span>=<span class="hljs-string">oracle.jdbc.driver.OracleDriver</span><br><span class="hljs-attr">spring.datasource.url</span>=<span class="hljs-string">jdbc:oracle:thin:@localhost:1521/ORCLLZD</span><br><span class="hljs-attr">spring.datasource.username</span>=<span class="hljs-string">students</span><br><span class="hljs-attr">spring.datasource.password</span>=<span class="hljs-string">123456       </span><br><span class="hljs-attr">server.servlet.context-path</span>=<span class="hljs-string">/testdb</span><br></code></pre></td></tr></table></figure>
 
-<h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3><p>​&#96;&#96;&#96;xml</p>
-<!--pom.xml-->
-<!--添加lombok的依赖-->
-<pre><code class="hljs">    &lt;dependency&gt;
-        &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
-        &lt;artifactId&gt;lombok&lt;/artifactId&gt;
-        &lt;optional&gt;true&lt;/optional&gt;
-    &lt;/dependency&gt;
-</code></pre>
-<!--热部署-->
-<pre><code class="hljs">  &lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;
-  &lt;/dependency&gt;
-</code></pre>
-<!--freemarker模板引擎-->
-<pre><code class="hljs">  &lt;dependency&gt;
-        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-        &lt;artifactId&gt;spring-boot-starter-freemarker&lt;/artifactId&gt;
-  &lt;/dependency&gt;
-</code></pre>
-<p>&#96;&#96;&#96;</p>
-<h1 id="未完待续。。。"><a href="#未完待续。。。" class="headerlink" title="未完待续。。。"></a>未完待续。。。</h1>
+<h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--pom.xml--&gt;</span><br><span class="hljs-comment">&lt;!--添加lombok的依赖--&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.projectlombok<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>lombok<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">optional</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">optional</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-comment">&lt;!--热部署--&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-devtools<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-comment">&lt;!--freemarker模板引擎--&gt;</span><br>	  <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-freemarker<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
                 
               </div>
             
@@ -736,20 +715,20 @@ a[ajax]--&gt;url--&gt;Controller
     <div class="license-meta">
       
         <div class="license-meta-item">
-          <div>Beitragsautor</div>
+          <div>Author</div>
           <div>lzdong</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
-          <div>Veröffentlicht am</div>
+          <div>Posted on</div>
           <div>September 3, 2021</div>
         </div>
       
       
       
         <div class="license-meta-item">
-          <div>Urheberrechtshinweis</div>
+          <div>Licensed under</div>
           <div>
             
               
@@ -778,7 +757,7 @@ a[ajax]--&gt;url--&gt;Controller
                       <a href="/2021/09/05/SSM%E6%A1%86%E6%9E%B6%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/" title="SSM框架-Spring 获取对象原理">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">SSM框架-Spring 获取对象原理</span>
-                        <span class="visible-mobile">Vorheriger</span>
+                        <span class="visible-mobile">Previous</span>
                       </a>
                     
                   </article>
@@ -787,7 +766,7 @@ a[ajax]--&gt;url--&gt;Controller
                     
                       <a href="/2021/09/01/%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96/" title="博客美化之路">
                         <span class="hidden-mobile">博客美化之路</span>
-                        <span class="visible-mobile">Nächster</span>
+                        <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -840,7 +819,7 @@ a[ajax]--&gt;url--&gt;Controller
     <div id="toc">
   <p class="toc-header">
     <i class="iconfont icon-list"></i>
-    <span>Inhaltsverzeichnis</span>
+    <span>Table of Contents</span>
   </p>
   <div class="toc-body" id="toc-body"></div>
 </div>
@@ -909,7 +888,7 @@ a[ajax]--&gt;url--&gt;Controller
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -917,7 +896,7 @@ a[ajax]--&gt;url--&gt;Controller
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">Stichwort</label>
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
@@ -1096,7 +1075,7 @@ a[ajax]--&gt;url--&gt;Controller
   
 
   <noscript>
-    <div class="noscript-warning">Blog funktioniert am besten mit aktiviertem JavaScript</div>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
   </noscript>
 </body>
 </html>
